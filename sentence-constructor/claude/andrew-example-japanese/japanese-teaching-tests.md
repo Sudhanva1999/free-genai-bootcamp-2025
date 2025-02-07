@@ -290,3 +290,170 @@
         <purpose>Maintain consistent verb form handling</purpose>
     </reference>
 </cross-references>
+
+
+## 1. Sentence Complexity Test Cases
+
+### 1.1 Simple Sentences
+```xml
+<test-cases>
+    <case id="simple-1">
+        <english>I eat bread.</english>
+        <vocabulary>
+            <word>
+                <marathi>खाणे</marathi>
+                <romaji>khane</romaji>
+                <english>eat</english>
+            </word>
+            <word>
+                <marathi>ब्रेड</marathi>
+                <romaji>bread</romaji>
+                <english>bread</english>
+            </word>
+        </vocabulary>
+        <structure>[Subject] [Object] [Verb].</structure>
+        <considerations>
+            - Basic sentence with subject, object, and verb
+            - Present tense form
+            - Subject can be omitted in Marathi
+        </considerations>
+    </case>
+    <case id="simple-2">
+        <english>The book is red.</english>
+        <vocabulary>
+            <word>
+                <marathi>पुस्तक</marathi>
+                <romaji>pustak</romaji>
+                <english>book</english>
+            </word>
+            <word>
+                <marathi>लाल</marathi>
+                <romaji>lal</romaji>
+                <english>red</english>
+            </word>
+        </vocabulary>
+        <structure>[Subject] [Adjective].</structure>
+        <considerations>
+            - Simple descriptor sentence
+            - Uses adjective directly
+            - No verb needed in Marathi
+        </considerations>
+    </case>
+</test-cases>
+```
+
+### 1.2 Compound Sentences
+```xml
+<test-cases>
+    <case id="compound-1">
+        <english>I eat bread and drink water.</english>
+        <vocabulary>
+            <word>
+                <marathi>खाणे</marathi>
+                <romaji>khane</romaji>
+                <english>eat</english>
+            </word>
+            <word>
+                <marathi>ब्रेड</marathi>
+                <romaji>bread</romaji>
+                <english>bread</english>
+            </word>
+            <word>
+                <marathi>पिणे</marathi>
+                <romaji>pine</romaji>
+                <english>drink</english>
+            </word>
+            <word>
+                <marathi>पाणी</marathi>
+                <romaji>pani</romaji>
+                <english>water</english>
+            </word>
+        </vocabulary>
+        <structure>[Subject] [Object1] [Verb1], [Object2] [Verb2].</structure>
+        <considerations>
+            - Compound sentence with two actions
+            - Subject shared between clauses
+            - Uses "आणि" for connection
+        </considerations>
+    </case>
+</test-cases>
+```
+
+### 1.3 Complex Sentences
+```xml
+<test-cases>
+    <case id="complex-1">
+        <english>Because it's hot, I drink water.</english>
+        <vocabulary>
+            <word>
+                <marathi>गरम</marathi>
+                <romaji>garam</romaji>
+                <english>hot</english>
+            </word>
+            <word>
+                <marathi>पिणे</marathi>
+                <romaji>pine</romaji>
+                <english>drink</english>
+            </word>
+            <word>
+                <marathi>पाणी</marathi>
+                <romaji>pani</romaji>
+                <english>water</english>
+            </word>
+        </vocabulary>
+        <structure>[Reason] [Subject] [Object] [Verb].</structure>
+        <considerations>
+            - Cause and effect relationship
+            - Uses "म्हणून" for "because"
+            - Weather description
+        </considerations>
+    </case>
+</test-cases>
+```
+
+## 2. Vocabulary Edge Cases
+
+### 2.1 Multiple Meanings
+```xml
+<vocabulary-test>
+    <word>
+        <marathi>लागणे</marathi>
+        <romaji>lagne</romaji>
+        <meanings>
+            <meaning>to take (time)</meaning>
+            <meaning>to cost (money)</meaning>
+            <meaning>to be attached (to something)</meaning>
+        </meanings>
+        <test-sentences>
+            <sentence>How long does it take?</sentence>
+            <sentence>How much does it cost?</sentence>
+            <sentence>The picture hangs on the wall.</sentence>
+        </test-sentences>
+    </word>
+</vocabulary-test>
+```
+
+### 2.2 Transitive/Intransitive Pairs
+```xml
+<vocabulary-test>
+    <pair>
+        <transitive>
+            <marathi>उघडणे</marathi>
+            <romaji>ughadne</romaji>
+            <english>to open (something)</english>
+        </transitive>
+        <intransitive>
+            <marathi>उघडणे</marathi>
+            <romaji>ughadne</romaji>
+            <english>to open (by itself)</english>
+        </intransitive>
+        <test-sentences>
+            <sentence>I open the door.</sentence>
+            <sentence>The door opens.</sentence>
+        </test-sentences>
+    </pair>
+</vocabulary-test>
+```
+
+(And so on for the remaining sections...)
+
