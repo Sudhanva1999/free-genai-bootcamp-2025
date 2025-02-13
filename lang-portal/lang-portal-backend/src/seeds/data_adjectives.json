@@ -1,0 +1,592 @@
+[
+    {
+      "marathi": "चांगला",
+      "phonetic": "chāṅgalā",
+      "english": "good",
+      "parts": [
+        { "nama": "चांग", "phonetic": ["chāṅga"] },
+        { "nama": "ला", "phonetic": ["lā"] }
+      ]
+    },
+    {
+      "marathi": "जुना",
+      "phonetic": "junā",
+      "english": "old",
+      "parts": [
+        { "nama": "जु", "phonetic": ["ju"] },
+        { "nama": "ना", "phonetic": ["nā"] }
+      ]
+    },
+    {
+      "marathi": "व्यस्त",
+      "phonetic": "vyasta",
+      "english": "busy",
+      "parts": [
+        { "nama": "व्य", "phonetic": ["vya"] },
+        { "nama": "स्त", "phonetic": ["sta"] }
+      ]
+    },
+    {
+      "marathi": "नवीन",
+      "phonetic": "navīn",
+      "english": "new",
+      "parts": [
+        { "nama": "न", "phonetic": ["na"] },
+        { "nama": "वी", "phonetic": ["vī"] },
+        { "nama": "न", "phonetic": ["n"] }
+      ]
+    },
+    {
+      "marathi": "वाईट",
+      "phonetic": "vāīṭa",
+      "english": "bad",
+      "parts": [
+        { "nama": "वा", "phonetic": ["vā"] },
+        { "nama": "ईट", "phonetic": ["īṭa"] }
+      ]
+    },
+    {
+      "marathi": "दुःखी",
+      "phonetic": "duḥkhī",
+      "english": "sad",
+      "parts": [
+        { "nama": "दुः", "phonetic": ["duḥ"] },
+        { "nama": "खी", "phonetic": ["khī"] }
+      ]
+    },
+    {
+      "marathi": "आनंदी",
+      "phonetic": "ānandī",
+      "english": "glad",
+      "parts": [
+        { "nama": "आ", "phonetic": ["ā"] },
+        { "nama": "नं", "phonetic": ["nan"] },
+        { "nama": "दी", "phonetic": ["dī"] }
+      ]
+    },
+    {
+      "marathi": "जाड",
+      "phonetic": "jāḍa",
+      "english": "fat",
+      "parts": [
+        { "nama": "जा", "phonetic": ["jā"] },
+        { "nama": "ड", "phonetic": ["ḍa"] }
+      ]
+    },
+    {
+      "marathi": "बारीक",
+      "phonetic": "bārīka",
+      "english": "thin",
+      "parts": [
+        { "nama": "बा", "phonetic": ["bā"] },
+        { "nama": "री", "phonetic": ["rī"] },
+        { "nama": "क", "phonetic": ["ka"] }
+      ]
+    },
+    {
+      "marathi": "रंजक",
+      "phonetic": "rañjaka",
+      "english": "interesting",
+      "parts": [
+        { "nama": "रं", "phonetic": ["rañ"] },
+        { "nama": "जक", "phonetic": ["jaka"] }
+      ]
+    },
+    {
+      "marathi": "सारखा",
+      "phonetic": "sārakhā",
+      "english": "same",
+      "parts": [
+        { "nama": "सा", "phonetic": ["sā"] },
+        { "nama": "र", "phonetic": ["ra"] },
+        { "nama": "खा", "phonetic": ["khā"] }
+      ]
+    },
+    {
+      "marathi": "घाण",
+      "phonetic": "ghāṇa",
+      "english": "dirty",
+      "parts": [
+        { "nama": "घा", "phonetic": ["ghā"] },
+        { "nama": "ण", "phonetic": ["ṇa"] }
+      ]
+    },
+    {
+      "marathi": "सुंदर",
+      "phonetic": "sundara",
+      "english": "pretty",
+      "parts": [
+        { "nama": "सुं", "phonetic": ["sun"] },
+        { "nama": "दर", "phonetic": ["dara"] }
+      ]
+    },
+    {
+      "marathi": "गरम",
+      "phonetic": "garama",
+      "english": "hot",
+      "parts": [
+        { "nama": "ग", "phonetic": ["ga"] },
+        { "nama": "रम", "phonetic": ["rama"] }
+      ]
+    },
+    {
+      "marathi": "थंड",
+      "phonetic": "thaṇḍa",
+      "english": "cold",
+      "parts": [
+        { "nama": "थं", "phonetic": ["thaṇ"] },
+        { "nama": "ड", "phonetic": ["ḍa"] }
+      ]
+    },
+    {
+      "marathi": "आवडते",
+      "phonetic": "āvaḍate",
+      "english": "to like",
+      "parts": [
+        { "nama": "आ", "phonetic": ["ā"] },
+        { "nama": "व", "phonetic": ["va"] },
+        { "nama": "ड", "phonetic": ["ḍa"] },
+        { "nama": "ते", "phonetic": ["te"] }
+      ]
+    },
+    {
+      "marathi": "थंडगार",
+      "phonetic": "thaṇḍagāra",
+      "english": "cool",
+      "parts": [
+        { "nama": "थंड", "phonetic": ["thaṇḍa"] },
+        { "nama": "गार", "phonetic": ["gāra"] }
+      ]
+    },
+    {
+      "marathi": "चविष्ट",
+      "phonetic": "chaviṣṭa",
+      "english": "tasty",
+      "parts": [
+        { "nama": "च", "phonetic": ["cha"] },
+        { "nama": "विष्ट", "phonetic": ["viṣṭa"] }
+      ]
+    },
+    {
+      "marathi": "खूप आवडते",
+      "phonetic": "khūpa āvaḍate",
+      "english": "to love",
+      "parts": [
+        { "nama": "खूप", "phonetic": ["khūpa"] },
+        { "nama": "आवडते", "phonetic": ["āvaḍate"] }
+      ]
+    },
+    {
+      "marathi": "तिखट",
+      "phonetic": "tikhaṭa",
+      "english": "spicy",
+      "parts": [
+        { "nama": "ति", "phonetic": ["ti"] },
+        { "nama": "खट", "phonetic": ["khaṭa"] }
+      ]
+    },
+    {
+      "marathi": "फिका",
+      "phonetic": "phikā",
+      "english": "bland",
+      "parts": [
+        { "nama": "फि", "phonetic": ["phi"] },
+        { "nama": "का", "phonetic": ["kā"] }
+      ]
+    },
+    {
+      "marathi": "जबरदस्त",
+      "phonetic": "jabaradasta",
+      "english": "awesome",
+      "parts": [
+        { "nama": "ज", "phonetic": ["ja"] },
+        { "nama": "बर", "phonetic": ["bara"] },
+        { "nama": "दस्त", "phonetic": ["dasta"] }
+      ]
+    },
+    {
+      "marathi": "अद्भुत",
+      "phonetic": "adbhuta",
+      "english": "wonderful",
+      "parts": [
+        { "nama": "अ", "phonetic": ["a"] },
+        { "nama": "द्भु", "phonetic": ["dbhu"] },
+        { "nama": "त", "phonetic": ["ta"] }
+      ]
+    },
+    {
+      "marathi": "अरुंद",
+      "phonetic": "arunda",
+      "english": "narrow",
+      "parts": [
+        { "nama": "अ", "phonetic": ["a"] },
+        { "nama": "रुं", "phonetic": ["run"] },
+        { "nama": "द", "phonetic": ["da"] }
+      ]
+    },
+    {
+      "marathi": "दयाळू",
+      "phonetic": "dayāḷū",
+      "english": "kind",
+      "parts": [
+        { "nama": "द", "phonetic": ["da"] },
+        { "nama": "या", "phonetic": ["yā"] },
+        { "nama": "ळू", "phonetic": ["ḷū"] }
+      ]
+    },
+    {
+      "marathi": "जवळ",
+      "phonetic": "javaḷa",
+      "english": "near; close",
+      "parts": [
+        { "nama": "ज", "phonetic": ["ja"] },
+        { "nama": "व", "phonetic": ["va"] },
+        { "nama": "ळ", "phonetic": ["ḷa"] }
+      ]
+    },
+    {
+      "marathi": "कंटाळवाणा",
+      "phonetic": "kaṇṭāḷavāṇā",
+      "english": "boring",
+      "parts": [
+        { "nama": "कं", "phonetic": ["kaṇ"] },
+        { "nama": "टा", "phonetic": ["ṭā"] },
+        { "nama": "ळ", "phonetic": ["ḷa"] },
+        { "nama": "वा", "phonetic": ["vā"] },
+        { "nama": "णा", "phonetic": ["ṇā"] }
+      ]
+    },
+    {
+      "marathi": "दूर",
+      "phonetic": "dūra",
+      "english": "far",
+      "parts": [
+        { "nama": "दू", "phonetic": ["dū"] },
+        { "nama": "र", "phonetic": ["ra"] }
+      ]
+    },
+    {
+      "marathi": "प्रसिद्ध",
+      "phonetic": "prasiddha",
+      "english": "famous",
+      "parts": [
+        { "nama": "प्र", "phonetic": ["pra"] },
+        { "nama": "सि", "phonetic": ["si"] },
+        { "nama": "द्ध", "phonetic": ["ddha"] }
+      ]
+    },
+    {
+      "marathi": "लांब",
+      "phonetic": "lāmba",
+      "english": "long",
+      "parts": [
+        { "nama": "लां", "phonetic": ["lām"] },
+        { "nama": "ब", "phonetic": ["ba"] }
+      ]
+    },
+    {
+      "marathi": "रुंद",
+      "phonetic": "runda",
+      "english": "wide",
+      "parts": [
+        { "nama": "रुं", "phonetic": ["run"] },
+        { "nama": "द", "phonetic": ["da"] }
+      ]
+    },
+    {
+      "marathi": "खालचा",
+      "phonetic": "khālachā",
+      "english": "low",
+      "parts": [
+        { "nama": "खा", "phonetic": ["khā"] },
+        { "nama": "ल", "phonetic": ["la"] },
+        { "nama": "चा", "phonetic": ["chā"] }
+      ]
+    },
+    {
+      "marathi": "विचित्र",
+      "phonetic": "vichitra",
+      "english": "strange",
+      "parts": [
+        { "nama": "वि", "phonetic": ["vi"] },
+        { "nama": "चि", "phonetic": ["chi"] },
+        { "nama": "त्र", "phonetic": ["tra"] }
+      ]
+    },
+    {
+      "marathi": "छोटा",
+      "phonetic": "choṭā",
+      "english": "short",
+      "parts": [
+        { "nama": "छो", "phonetic": ["cho"] },
+        { "nama": "टा", "phonetic": ["ṭā"] }
+      ]
+    },
+    {
+      "marathi": "महाग",
+      "phonetic": "mahāga",
+      "english": "expensive",
+      "parts": [
+        { "nama": "म", "phonetic": ["ma"] },
+        { "nama": "हा", "phonetic": ["hā"] },
+        { "nama": "ग", "phonetic": ["ga"] }
+      ]
+    },
+    {
+      "marathi": "लहान",
+      "phonetic": "lahāna",
+      "english": "small",
+      "parts": [
+        { "nama": "ल", "phonetic": ["la"] },
+        { "nama": "हा", "phonetic": ["hā"] },
+        { "nama": "न", "phonetic": ["na"] }
+      ]
+    },
+    {
+      "marathi": "स्वस्त",
+      "phonetic": "svasta",
+      "english": "cheap",
+      "parts": [
+        { "nama": "स्व", "phonetic": ["sva"] },
+        { "nama": "स्त", "phonetic": ["sta"] }
+      ]
+    },
+    {
+      "marathi": "मोठा",
+      "phonetic": "moṭhā",
+      "english": "large",
+      "parts": [
+        { "nama": "मो", "phonetic": ["mo"] },
+        { "nama": "ठा", "phonetic": ["ṭhā"] }
+      ]
+    },
+    {
+      "marathi": "मजेदार",
+      "phonetic": "majedāra",
+      "english": "fun",
+      "parts": [
+        { "nama": "म", "phonetic": ["ma"] },
+        { "nama": "जे", "phonetic": ["je"] },
+        { "nama": "दार", "phonetic": ["dāra"] }
+      ]
+    },
+    {
+      "marathi": "बलवान",
+      "phonetic": "balavāna",
+      "english": "strong",
+      "parts": [
+        { "nama": "ब", "phonetic": ["ba"] },
+        { "nama": "ल", "phonetic": ["la"] },
+        { "nama": "वान", "phonetic": ["vāna"] }
+      ]
+    },
+    {
+        "marathi": "कमजोर",
+        "phonetic": "kamajora",
+        "english": "weak",
+        "parts": [
+          { "nama": "कम", "phonetic": ["kama"] },
+          { "nama": "जोर", "phonetic": ["jora"] }
+        ]
+      },
+      {
+        "marathi": "उजळ",
+        "phonetic": "ujaḷa",
+        "english": "bright",
+        "parts": [
+          { "nama": "उ", "phonetic": ["u"] },
+          { "nama": "जळ", "phonetic": ["jaḷa"] }
+        ]
+      },
+      {
+        "marathi": "अंधारी",
+        "phonetic": "andhārī",
+        "english": "dark",
+        "parts": [
+          { "nama": "अं", "phonetic": ["an"] },
+          { "nama": "धा", "phonetic": ["dhā"] },
+          { "nama": "री", "phonetic": ["rī"] }
+        ]
+      },
+      {
+        "marathi": "जड",
+        "phonetic": "jaḍa",
+        "english": "heavy",
+        "parts": [
+          { "nama": "ज", "phonetic": ["ja"] },
+          { "nama": "ड", "phonetic": ["ḍa"] }
+        ]
+      },
+      {
+        "marathi": "हलका",
+        "phonetic": "halakā",
+        "english": "light",
+        "parts": [
+          { "nama": "ह", "phonetic": ["ha"] },
+          { "nama": "ल", "phonetic": ["la"] },
+          { "nama": "का", "phonetic": ["kā"] }
+        ]
+      },
+      {
+        "marathi": "लवकर",
+        "phonetic": "lavakara",
+        "english": "early",
+        "parts": [
+          { "nama": "ल", "phonetic": ["la"] },
+          { "nama": "व", "phonetic": ["va"] },
+          { "nama": "कर", "phonetic": ["kara"] }
+        ]
+      },
+      {
+        "marathi": "सावकाश",
+        "phonetic": "sāvakāśa",
+        "english": "slow",
+        "parts": [
+          { "nama": "सा", "phonetic": ["sā"] },
+          { "nama": "व", "phonetic": ["va"] },
+          { "nama": "काश", "phonetic": ["kāśa"] }
+        ]
+      },
+      {
+        "marathi": "दुखत",
+        "phonetic": "dukhata",
+        "english": "painful",
+        "parts": [
+          { "nama": "दु", "phonetic": ["du"] },
+          { "nama": "ख", "phonetic": ["kha"] },
+          { "nama": "त", "phonetic": ["ta"] }
+        ]
+      },
+      {
+        "marathi": "पसरलेला",
+        "phonetic": "pasaralelā",
+        "english": "spread out",
+        "parts": [
+          { "nama": "प", "phonetic": ["pa"] },
+          { "nama": "सर", "phonetic": ["sara"] },
+          { "nama": "ले", "phonetic": ["le"] },
+          { "nama": "ला", "phonetic": ["lā"] }
+        ]
+      },
+      {
+        "marathi": "कडू",
+        "phonetic": "kaḍū",
+        "english": "bitter",
+        "parts": [
+          { "nama": "क", "phonetic": ["ka"] },
+          { "nama": "डू", "phonetic": ["ḍū"] }
+        ]
+      },
+      {
+        "marathi": "गोड",
+        "phonetic": "goḍa",
+        "english": "sweet",
+        "parts": [
+          { "nama": "गो", "phonetic": ["go"] },
+          { "nama": "ड", "phonetic": ["ḍa"] }
+        ]
+      },
+      {
+        "marathi": "कठीण",
+        "phonetic": "kaṭhīṇa",
+        "english": "hard",
+        "parts": [
+          { "nama": "क", "phonetic": ["ka"] },
+          { "nama": "ठी", "phonetic": ["ṭhī"] },
+          { "nama": "ण", "phonetic": ["ṇa"] }
+        ]
+      },
+      {
+        "marathi": "मऊ",
+        "phonetic": "maū",
+        "english": "soft",
+        "parts": [
+          { "nama": "म", "phonetic": ["ma"] },
+          { "nama": "ऊ", "phonetic": ["ū"] }
+        ]
+      },
+      {
+        "marathi": "दुर्मिळ",
+        "phonetic": "durmiḷa",
+        "english": "rare",
+        "parts": [
+          { "nama": "दुर्", "phonetic": ["dur"] },
+          { "nama": "मिळ", "phonetic": ["miḷa"] }
+        ]
+      },
+      {
+        "marathi": "भयानक",
+        "phonetic": "bhayānaka",
+        "english": "scary",
+        "parts": [
+          { "nama": "भ", "phonetic": ["bha"] },
+          { "nama": "या", "phonetic": ["yā"] },
+          { "nama": "नक", "phonetic": ["naka"] }
+        ]
+      },
+      {
+        "marathi": "गोंगाट",
+        "phonetic": "goṅgāṭa",
+        "english": "noisy",
+        "parts": [
+          { "nama": "गों", "phonetic": ["goṅ"] },
+          { "nama": "गाट", "phonetic": ["gāṭa"] }
+        ]
+      },
+      {
+        "marathi": "शांत",
+        "phonetic": "śānta",
+        "english": "quiet",
+        "parts": [
+          { "nama": "शां", "phonetic": ["śān"] },
+          { "nama": "त", "phonetic": ["ta"] }
+        ]
+      },
+      {
+        "marathi": "थंडगार",
+        "phonetic": "thaṇḍagāra",
+        "english": "cold",
+        "parts": [
+          { "nama": "थंड", "phonetic": ["thaṇḍa"] },
+          { "nama": "गार", "phonetic": ["gāra"] }
+        ]
+      },
+      {
+        "marathi": "मळलेला",
+        "phonetic": "maḷalelā",
+        "english": "dirty",
+        "parts": [
+          { "nama": "म", "phonetic": ["ma"] },
+          { "nama": "ळ", "phonetic": ["ḷa"] },
+          { "nama": "ले", "phonetic": ["le"] },
+          { "nama": "ला", "phonetic": ["lā"] }
+        ]
+      },
+      {
+        "marathi": "सुंदर",
+        "phonetic": "sundara",
+        "english": "beautiful",
+        "parts": [
+          { "nama": "सुं", "phonetic": ["sun"] },
+          { "nama": "दर", "phonetic": ["dara"] }
+        ]
+      },
+      {
+        "marathi": "सोपा",
+        "phonetic": "sopā",
+        "english": "easy",
+        "parts": [
+          { "nama": "सो", "phonetic": ["so"] },
+          { "nama": "पा", "phonetic": ["pā"] }
+        ]
+      },
+      {
+        "marathi": "थोर",
+        "phonetic": "thora",
+        "english": "great",
+        "parts": [
+          { "nama": "थो", "phonetic": ["tho"] },
+          { "nama": "र", "phonetic": ["ra"] }
+        ]
+      }
+    ]

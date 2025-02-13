@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS words (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  marathi TEXT NOT NULL,
+  phonetic TEXT NOT NULL,
+  english TEXT NOT NULL,
+  parts TEXT NOT NULL  
+);

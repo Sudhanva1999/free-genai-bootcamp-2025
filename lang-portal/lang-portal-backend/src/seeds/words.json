@@ -1,0 +1,62 @@
+[
+  {
+    "marathi": "नमस्कार",
+    "phonetic": "Namaskāra",
+    "english": "hello",
+    "parts": ["greeting"]
+  },
+  {
+    "marathi": "धन्यवाद",
+    "phonetic": "Dhan'yavāda",
+    "english": "thank you",
+    "parts": ["gratitude"]
+  },
+  {
+    "marathi": "कसे आहात?",
+    "phonetic": "Kasē āhāta?",
+    "english": "how are you?",
+    "parts": ["inquiry"]
+  },
+  {
+    "marathi": "शुभ प्रभात",
+    "phonetic": "Śubha prabhāta",
+    "english": "good morning",
+    "parts": ["greeting"]
+  },
+  {
+    "marathi": "शुभ संध्या",
+    "phonetic": "Śubha sandhyā",
+    "english": "good evening",
+    "parts": ["greeting"]
+  },
+  {
+    "marathi": "गुडबाय",
+    "phonetic": "Guḍabāya",
+    "english": "goodbye",
+    "parts": ["farewell"]
+  },
+  {
+    "marathi": "काय चाललं आहे?",
+    "phonetic": "Kāya cālaḷa āhe?",
+    "english": "what's going on?",
+    "parts": ["inquiry"]
+  },
+  {
+    "marathi": "माझं नाव [तुमचं नाव]",
+    "phonetic": "Mājha nāva [tumaca nāva]",
+    "english": "my name is [your name]",
+    "parts": ["introduction"]
+  },
+  {
+    "marathi": "तुमचं स्वागत आहे",
+    "phonetic": "Tumaca svāgata āhe",
+    "english": "you are welcome",
+    "parts": ["greeting"]
+  },
+  {
+    "marathi": "कृपया",
+    "phonetic": "Kr̥payā",
+    "english": "please",
+    "parts": ["politeness"]
+  }
+]

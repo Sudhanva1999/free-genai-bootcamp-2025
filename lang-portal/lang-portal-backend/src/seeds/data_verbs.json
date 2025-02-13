@@ -1,0 +1,557 @@
+[
+  {
+    "marathi": "पैसे देणे",
+    "phonetic": "Paisē dēṇē",
+    "english": "to pay",
+    "parts": [
+      { "marathi": "पैसे", "phonetic": ["Paisē"] },
+      { "marathi": "देणे", "phonetic": ["dēṇē"] }
+    ]
+  },
+  {
+    "marathi": "जाणे",
+    "phonetic": "Jāṇē",
+    "english": "to go",
+    "parts": [
+      { "marathi": "जा", "phonetic": ["Jā"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "व्यायाम करणे",
+    "phonetic": "Vyāyām karaṇē",
+    "english": "to exercise",
+    "parts": [
+      { "marathi": "व्यायाम", "phonetic": ["Vyāyām"] },
+      { "marathi": "करणे", "phonetic": ["karaṇē"] }
+    ]
+  },
+  {
+    "marathi": "जागे होणे",
+    "phonetic": "Jāgē hōṇē",
+    "english": "to wake up",
+    "parts": [
+      { "marathi": "जागे", "phonetic": ["Jāgē"] },
+      { "marathi": "होणे", "phonetic": ["hōṇē"] }
+    ]
+  },
+  {
+    "marathi": "खरेदी करणे",
+    "phonetic": "Kharēdī karaṇē",
+    "english": "to shop",
+    "parts": [
+      { "marathi": "खरेदी", "phonetic": ["Kharēdī"] },
+      { "marathi": "करणे", "phonetic": ["karaṇē"] }
+    ]
+  },
+  {
+    "marathi": "परत येणे",
+    "phonetic": "Parat yēṇē",
+    "english": "to return",
+    "parts": [
+      { "marathi": "परत", "phonetic": ["Parat"] },
+      { "marathi": "येणे", "phonetic": ["yēṇē"] }
+    ]
+  },
+  {
+    "marathi": "लिहिणे",
+    "phonetic": "Lihiṇē",
+    "english": "to write",
+    "parts": [
+      { "marathi": "लिहि", "phonetic": ["Lihi"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "पर्यटन करणे",
+    "phonetic": "Paryaṭan karaṇē",
+    "english": "to sightsee",
+    "parts": [
+      { "marathi": "पर्यटन", "phonetic": ["Paryaṭan"] },
+      { "marathi": "करणे", "phonetic": ["karaṇē"] }
+    ]
+  },
+  {
+    "marathi": "ऐकणे",
+    "phonetic": "Aikaṇē",
+    "english": "to listen",
+    "parts": [
+      { "marathi": "ऐक", "phonetic": ["Aik"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "येणे",
+    "phonetic": "Yēṇē",
+    "english": "to come",
+    "parts": [
+      { "marathi": "ये", "phonetic": ["Yē"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "करणे",
+    "phonetic": "Karaṇē",
+    "english": "to do",
+    "parts": [
+      { "marathi": "कर", "phonetic": ["Kara"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "जेवणे",
+    "phonetic": "Jēvaṇē",
+    "english": "to eat",
+    "parts": [
+      { "marathi": "जेव", "phonetic": ["Jēva"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "झोपणे",
+    "phonetic": "Jhōpaṇē",
+    "english": "to sleep",
+    "parts": [
+      { "marathi": "झोप", "phonetic": ["Jhōpa"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "पिणे",
+    "phonetic": "Piṇē",
+    "english": "to drink",
+    "parts": [
+      { "marathi": "पि", "phonetic": ["Pi"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "चढणे",
+    "phonetic": "Chaḍhaṇē",
+    "english": "to ride",
+    "parts": [
+      { "marathi": "चढ", "phonetic": ["Chaḍha"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "बोलणे",
+    "phonetic": "Bōlaṇē",
+    "english": "to speak",
+    "parts": [
+      { "marathi": "बोल", "phonetic": ["Bōla"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "अभ्यास करणे",
+    "phonetic": "Abhyās karaṇē",
+    "english": "to study",
+    "parts": [
+      { "marathi": "अभ्यास", "phonetic": ["Abhyās"] },
+      { "marathi": "करणे", "phonetic": ["karaṇē"] }
+    ]
+  },
+  {
+    "marathi": "पाहणे",
+    "phonetic": "Pāhaṇē",
+    "english": "to see",
+    "parts": [
+      { "marathi": "पाह", "phonetic": ["Pāha"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "वाचणे",
+    "phonetic": "Vācaṇē",
+    "english": "to read",
+    "parts": [
+      { "marathi": "वाच", "phonetic": ["Vāca"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "टांगणे",
+    "phonetic": "Ṭāṅgaṇē",
+    "english": "to hang; to call (phone)",
+    "parts": [
+      { "marathi": "टांग", "phonetic": ["Ṭāṅga"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "उसने घेणे",
+    "phonetic": "Usanē ghēṇē",
+    "english": "to borrow",
+    "parts": [
+      { "marathi": "उसने", "phonetic": ["Usanē"] },
+      { "marathi": "घेणे", "phonetic": ["ghēṇē"] }
+    ]
+  },
+  {
+    "marathi": "उसने देणे",
+    "phonetic": "Usanē dēṇē",
+    "english": "to lend",
+    "parts": [
+      { "marathi": "उसने", "phonetic": ["Usanē"] },
+      { "marathi": "देणे", "phonetic": ["dēṇē"] }
+    ]
+  },
+  {
+    "marathi": "शिकणे",
+    "phonetic": "Śikaṇē",
+    "english": "to learn",
+    "parts": [
+      { "marathi": "शिक", "phonetic": ["Śika"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "शिकवणे",
+    "phonetic": "Śikavaṇē",
+    "english": "to teach",
+    "parts": [
+      { "marathi": "शिकव", "phonetic": ["Śikava"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "मिळणे",
+    "phonetic": "Miḷaṇē",
+    "english": "to receive",
+    "parts": [
+      { "marathi": "मिळ", "phonetic": ["Miḷa"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "देणे",
+    "phonetic": "Dēṇē",
+    "english": "to give",
+    "parts": [
+      { "marathi": "दे", "phonetic": ["Dē"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "भेटणे",
+    "phonetic": "Bhēṭaṇē",
+    "english": "to meet",
+    "parts": [
+      { "marathi": "भेट", "phonetic": ["Bhēṭa"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "उतरणे",
+    "phonetic": "Utaraṇē",
+    "english": "to get off (vehicle)",
+    "parts": [
+      { "marathi": "उतर", "phonetic": ["Utara"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "सुरू करणे",
+    "phonetic": "Surū karaṇē",
+    "english": "to start",
+    "parts": [
+      { "marathi": "सुरू", "phonetic": ["Surū"] },
+      { "marathi": "कर", "phonetic": ["kara"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "दाखवणे",
+    "phonetic": "Dākhavaṇē",
+    "english": "to show",
+    "parts": [
+      { "marathi": "दाखव", "phonetic": ["Dākhava"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "उतरणे",
+    "phonetic": "Utaraṇē",
+    "english": "to get off",
+    "parts": [
+      { "marathi": "उतर", "phonetic": ["Utara"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "थांबवणे",
+    "phonetic": "Thāṁbavaṇē",
+    "english": "to stop",
+    "parts": [
+      { "marathi": "थांबव", "phonetic": ["Thāṁbava"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "बंद करणे",
+    "phonetic": "Banda karaṇē",
+    "english": "to turn off; to erase",
+    "parts": [
+      { "marathi": "बंद", "phonetic": ["Banda"] },
+      { "marathi": "कर", "phonetic": ["kara"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "चालू करणे",
+    "phonetic": "Cālū karaṇē",
+    "english": "to turn on",
+    "parts": [
+      { "marathi": "चालू", "phonetic": ["Cālū"] },
+      { "marathi": "कर", "phonetic": ["kara"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "घाई करणे",
+    "phonetic": "Ghāī karaṇē",
+    "english": "to hurry",
+    "parts": [
+      { "marathi": "घाई", "phonetic": ["Ghāī"] },
+      { "marathi": "कर", "phonetic": ["kara"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "मदत करणे",
+    "phonetic": "Madata karaṇē",
+    "english": "to help",
+    "parts": [
+      { "marathi": "मदत", "phonetic": ["Madata"] },
+      { "marathi": "कर", "phonetic": ["kara"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "घेणे",
+    "phonetic": "Ghēṇē",
+    "english": "to take",
+    "parts": [
+      { "marathi": "घे", "phonetic": ["Ghē"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "धरणे",
+    "phonetic": "Dharaṇē",
+    "english": "to hold",
+    "parts": [
+      { "marathi": "धर", "phonetic": ["Dhara"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "वाट पाहणे",
+    "phonetic": "Vāṭa pāhaṇē",
+    "english": "to wait",
+    "parts": [
+      { "marathi": "वाट", "phonetic": ["Vāṭa"] },
+      { "marathi": "पाह", "phonetic": ["pāha"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "चालणे",
+    "phonetic": "chālaṇē",
+    "english": "to walk",
+    "parts": [
+      { "marathi": "चाल", "phonetic": ["chāl"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "बंद करणे",
+    "phonetic": "banda karaṇē",
+    "english": "to close",
+    "parts": [
+      { "marathi": "बंद", "phonetic": ["banda"] },
+      { "marathi": "कर", "phonetic": ["kara"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "विश्रांती घेणे",
+    "phonetic": "vishrāntī ghēṇē",
+    "english": "to rest",
+    "parts": [
+      { "marathi": "विश्रांती", "phonetic": ["vishrāntī"] },
+      { "marathi": "घे", "phonetic": ["ghē"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "संपवणे",
+    "phonetic": "sampavanē",
+    "english": "to finish",
+    "parts": [
+      { "marathi": "संप", "phonetic": ["sampa"] },
+      { "marathi": "व", "phonetic": ["va"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "काम करणे",
+    "phonetic": "kāma karaṇē",
+    "english": "to work",
+    "parts": [
+      { "marathi": "काम", "phonetic": ["kāma"] },
+      { "marathi": "कर", "phonetic": ["kara"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "उघडणे",
+    "phonetic": "ughaḍaṇē",
+    "english": "to open",
+    "parts": [
+      { "marathi": "उघड", "phonetic": ["ughaḍa"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "बोलावणे",
+    "phonetic": "bolāvaṇē",
+    "english": "to call",
+    "parts": [
+      { "marathi": "बोलाव", "phonetic": ["bolāva"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "पाठवणे",
+    "phonetic": "pāṭhavaṇē",
+    "english": "to send",
+    "parts": [
+      { "marathi": "पाठव", "phonetic": ["pāṭhava"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "कापणे",
+    "phonetic": "kāpaṇē",
+    "english": "to cut",
+    "parts": [
+      { "marathi": "काप", "phonetic": ["kāpa"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "फोटो काढणे",
+    "phonetic": "phōṭō kāḍhaṇē",
+    "english": "to take (a photo)",
+    "parts": [
+      { "marathi": "फोटो", "phonetic": ["phōṭō"] },
+      { "marathi": "काढ", "phonetic": ["kāḍha"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "म्हणणे",
+    "phonetic": "mhaṇaṇē",
+    "english": "to say",
+    "parts": [
+      { "marathi": "म्हण", "phonetic": ["mhaṇa"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "पाहू शकणे",
+    "phonetic": "pāhū śakaṇē",
+    "english": "to be able to see",
+    "parts": [
+      { "marathi": "पाहू", "phonetic": ["pāhū"] },
+      { "marathi": "शक", "phonetic": ["śaka"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "बनवणे",
+    "phonetic": "banavaṇē",
+    "english": "to make",
+    "parts": [
+      { "marathi": "बनव", "phonetic": ["banava"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "वापरणे",
+    "phonetic": "vāparaṇē",
+    "english": "to use",
+    "parts": [
+      { "marathi": "वापर", "phonetic": ["vāpara"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "असणे",
+    "phonetic": "asaṇē",
+    "english": "to exist (inanimate)",
+    "parts": [
+      { "marathi": "अस", "phonetic": ["asa"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "राहणे",
+    "phonetic": "rāhaṇē",
+    "english": "to exist (animate)",
+    "parts": [
+      { "marathi": "राह", "phonetic": ["rāha"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "त्रास होणे",
+    "phonetic": "trāsa hōṇē",
+    "english": "to be troubled",
+    "parts": [
+      { "marathi": "त्रास", "phonetic": ["trāsa"] },
+      { "marathi": "हो", "phonetic": ["hō"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "पोहणे",
+    "phonetic": "pōhaṇē",
+    "english": "to swim",
+    "parts": [
+      { "marathi": "पोह", "phonetic": ["pōha"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "फिरायला जाणे",
+    "phonetic": "phirāylā jāṇē",
+    "english": "to stroll",
+    "parts": [
+      { "marathi": "फिरायला", "phonetic": ["phirāylā"] },
+      { "marathi": "जा", "phonetic": ["jā"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "गाडी चालवणे",
+    "phonetic": "gāḍī chālavaṇē",
+    "english": "to drive",
+    "parts": [
+      { "marathi": "गाडी", "phonetic": ["gāḍī"] },
+      { "marathi": "चालव", "phonetic": ["chālava"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  },
+  {
+    "marathi": "भेटणे",
+    "phonetic": "bhēṭaṇē",
+    "english": "to meet; to fit",
+    "parts": [
+      { "marathi": "भेट", "phonetic": ["bhēṭa"] },
+      { "marathi": "णे", "phonetic": ["ṇē"] }
+    ]
+  }
+]
