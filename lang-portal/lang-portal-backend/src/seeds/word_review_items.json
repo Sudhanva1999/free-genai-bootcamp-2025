@@ -1,0 +1,38 @@
+[
+    {
+      "word_id": 1,
+      "study_session_id": 1,
+      "correct": true,
+      "created_at": "2025-01-01 09:15:00"
+    },
+    {
+      "word_id": 2,
+      "study_session_id": 1,
+      "correct": false,
+      "created_at": "2025-01-01 09:20:00"
+    },
+    {
+      "word_id": 1,
+      "study_session_id": 2,
+      "correct": true,
+      "created_at": "2025-01-01 10:45:00"
+    },
+    {
+      "word_id": 3,
+      "study_session_id": 3,
+      "correct": true,
+      "created_at": "2025-01-02 14:30:00"
+    },
+    {
+      "word_id": 4,
+      "study_session_id": 3,
+      "correct": false,
+      "created_at": "2025-01-02 14:35:00"
+    },
+    {
+      "word_id": 5,
+      "study_session_id": 4,
+      "correct": true,
+      "created_at": "2025-01-02 17:00:00"
+    }
+  ]

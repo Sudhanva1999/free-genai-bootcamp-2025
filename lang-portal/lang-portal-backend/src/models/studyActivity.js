@@ -1,11 +1,16 @@
 const db = require('../database');
 
-
 class StudyActivity {
   static async findById(id) {
     return await db.get(
       "SELECT id, name, url, preview_url as thumbnail_url FROM study_activities WHERE id = ?",
       [id]
+    );
+  }
+
+  static async findAll() {
+    return await db.all(
+      "SELECT id, name, url, preview_url as thumbnail_url FROM study_activities"
     );
   }
 

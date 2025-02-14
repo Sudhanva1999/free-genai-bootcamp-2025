@@ -58,9 +58,9 @@ class Dashboard {
 
     return {
       success_rate: success.rate || 0,
-      total_study_sessions: totalSessions.count,
-      total_active_groups: activeGroups.count,
-      study_streak_days: streak.days,
+      total_study_sessions: totalSessions.count || 0,
+      total_active_groups: activeGroups.count || 0,
+      study_streak_days: streak.days || 0,
     };
   }
 }

@@ -1,0 +1,32 @@
+[
+    {
+      "word_id": 1,
+      "correct_count": 5,
+      "wrong_count": 2,
+      "last_reviewed": "2025-01-04 10:15:00"
+    },
+    {
+      "word_id": 2,
+      "correct_count": 3,
+      "wrong_count": 1,
+      "last_reviewed": "2025-01-04 10:30:00"
+    },
+    {
+      "word_id": 3,
+      "correct_count": 4,
+      "wrong_count": 3,
+      "last_reviewed": "2025-01-04 11:00:00"
+    },
+    {
+      "word_id": 4,
+      "correct_count": 6,
+      "wrong_count": 1,
+      "last_reviewed": "2025-01-04 11:30:00"
+    },
+    {
+      "word_id": 5,
+      "correct_count": 2,
+      "wrong_count": 4,
+      "last_reviewed": "2025-01-04 12:00:00"
+    }
+  ]

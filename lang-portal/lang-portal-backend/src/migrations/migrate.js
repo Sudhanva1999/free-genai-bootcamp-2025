@@ -11,12 +11,8 @@ class DatabaseSetup {
 
     async init() {
         try {
-            // Execute all SQL setup scripts in order
             await this.executeSetupScripts();
-            
-            // Seed the database
             await this.seedDatabase();
-            
             console.log('Database setup completed successfully');
         } catch (error) {
             console.error('Error during database setup:', error);
@@ -48,27 +44,23 @@ class DatabaseSetup {
     }
 
     async seedDatabase() {
-        // Seed adjectives
         await this.seedWordGroup('data_adjectives.json', 1, 'data_adjectives');
-        
-        // Seed verbs
         await this.seedWordGroup('data_verbs.json', 2, 'data_verbs');
-        
-        // Seed study activities
         await this.seedStudyActivities();
+        await this.seedStudySessions();
+        await this.seedWordReviews();
+        await this.seedWordReviewItems();
     }
 
     async seedWordGroup(filename, groupId, groupName) {
         const filePath = path.join(this.seedPath, filename);
         const data = JSON.parse(await fs.readFile(filePath, 'utf8'));
 
-        // Insert group
         const insertGroup = this.db.prepare(
             'INSERT INTO groups (id, name, words_count) VALUES (?, ?, 0)'
         );
         insertGroup.run(groupId, groupName);
 
-        // Insert words and create relationships
         const insertWord = this.db.prepare(
             'INSERT INTO words (marathi, phonetic, english, parts) VALUES (?, ?, ?, ?)'
         );
@@ -79,14 +71,13 @@ class DatabaseSetup {
             'UPDATE groups SET words_count = words_count + 1 WHERE id = ?'
         );
 
-        // Use transaction for better performance and data consistency
         const transaction = this.db.transaction((words) => {
             for (const word of words) {
                 const result = insertWord.run(
                     word.marathi,
                     word.phonetic,
                     word.english,
-                    JSON.stringify(word.parts) // Convert parts array to JSON string
+                    JSON.stringify(word.parts)
                 );
                 insertWordGroup.run(result.lastInsertRowid, groupId);
                 updateWordCount.run(groupId);
@@ -117,6 +108,88 @@ class DatabaseSetup {
 
         transaction(activities);
         console.log(`Seeded ${activities.length} study activities`);
+    }
+
+    async seedStudySessions() {
+        const filePath = path.join(this.seedPath, 'study_sessions.json');
+        const sessions = JSON.parse(await fs.readFile(filePath, 'utf8'));
+
+        const insertSession = this.db.prepare(`
+            INSERT INTO study_sessions (
+                group_id,
+                study_activity_id,
+                created_at
+            ) VALUES (?, ?, ?)
+        `);
+
+        const transaction = this.db.transaction((sessions) => {
+            for (const session of sessions) {
+                insertSession.run(
+                    session.group_id,
+                    session.study_activity_id,
+                    session.created_at
+                );
+            }
+        });
+
+        transaction(sessions);
+        console.log(`Seeded ${sessions.length} study sessions`);
+    }
+
+    async seedWordReviews() {
+        const filePath = path.join(this.seedPath, 'word_reviews.json');
+        const reviews = JSON.parse(await fs.readFile(filePath, 'utf8'));
+
+        const insertReview = this.db.prepare(`
+            INSERT INTO word_reviews (
+                word_id,
+                correct_count,
+                wrong_count,
+                last_reviewed
+            ) VALUES (?, ?, ?, ?)
+        `);
+
+        const transaction = this.db.transaction((reviews) => {
+            for (const review of reviews) {
+                insertReview.run(
+                    review.word_id,
+                    review.correct_count,
+                    review.wrong_count,
+                    review.last_reviewed
+                );
+            }
+        });
+
+        transaction(reviews);
+        console.log(`Seeded ${reviews.length} word reviews`);
+    }
+
+    async seedWordReviewItems() {
+        const filePath = path.join(this.seedPath, 'word_review_items.json');
+        const items = JSON.parse(await fs.readFile(filePath, 'utf8'));
+
+        const insertItem = this.db.prepare(`
+            INSERT INTO word_review_items (
+                word_id,
+                study_session_id,
+                correct,
+                created_at
+            ) VALUES (?, ?, ?, ?)
+        `);
+
+        const transaction = this.db.transaction((items) => {
+            for (const item of items) {
+                insertItem.run(
+                    item.word_id,
+                    item.study_session_id,
+                    item.correct ? 1 : 0, 
+                    item.created_at
+                );
+            }
+        });
+
+        transaction(items);
+        console.log(`Seeded ${items.length} word review items`);
     }
 
     close() {
