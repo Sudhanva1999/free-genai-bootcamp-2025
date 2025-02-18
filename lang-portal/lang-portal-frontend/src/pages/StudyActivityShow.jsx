@@ -1,4 +1,3 @@
-
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useNavigate } from "react-router-dom";
 import { getStudyActivity, getStudyActivitySessions } from "../services/api";
