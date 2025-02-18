@@ -32,23 +32,6 @@ const schema = {
   type: "object"
 };
 
-// Class to represent a word part
-class WordPart {
-  constructor(nama, phonetic) {
-    this.nama = nama;
-    this.phonetic = phonetic;
-  }
-}
-
-// Class to represent a complete Marathi word
-class MarathiWord {
-  constructor(marathi, phonetic, english, parts) {
-    this.marathi = marathi;
-    this.phonetic = phonetic;
-    this.english = english;
-    this.parts = parts;
-  }
-}
 
 const VocabularyApp = () => {
   const [category, setCategory] = useState('');
