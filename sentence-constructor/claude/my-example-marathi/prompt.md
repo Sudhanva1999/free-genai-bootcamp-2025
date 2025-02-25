@@ -30,7 +30,7 @@ Setup ->  Attempt
 Setup -> Question
 Clues -> Attempt
 Attempt -> Clues
-Attempt -> Setupt
+Attempt -> Setup
 
 Each state expects the following kinds of inputs and ouputs:
 Inputs and ouputs contain expects components of text.
