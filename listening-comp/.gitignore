@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+backend/data/vector_store/
 # C extensions
 *.so
 
