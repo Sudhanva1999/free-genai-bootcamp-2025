@@ -1,0 +1,32 @@
+# AWS Credentials and Configuration
+# NOTE: No AWS credentials are stored here - using AWS CLI configured credentials
+# AWS CLI should be configured with appropriate credentials and region
+
+# Model Configuration
+models:
+  # Anthropic Claude model ID for Bedrock
+  # Using the Sonnet model for both text and vision tasks
+  anthropic_claude: anthropic.claude-3-5-sonnet-20240620-v1:0
+  
+  # Claude model with vision capabilities for OCR replacement
+  anthropic_claude_vision: anthropic.claude-3-5-sonnet-20240620-v1:0
+  
+  # Alternative models if needed (commented out, but available if desired)
+  # anthropic_claude_instant: anthropic.claude-instant-v1
+  # amazon_titan: amazon.titan-text-express-v1
+
+# API Configuration
+api:
+  # Base URL for the vocabulary API service
+  base_url: "http://10.0.0.79:5002"
+  
+  # Endpoint patterns
+  vocabulary_endpoint: "/api/groups/words/{group_name}"
+
+# Application Settings
+app:
+  # Debug mode (true/false)
+  debug: true
+  
+  # Number of words to generate sentences from
+  word_limit: 10

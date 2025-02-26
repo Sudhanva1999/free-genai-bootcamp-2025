@@ -1,0 +1,6 @@
+Exception: An error occurred (ValidationException) when calling the InvokeModel operation: Malformed input request: #: subject must not be valid against schema {"required":["messages"]}#/messages/0/role: system is not a valid enum value, please reformat your input and try again.
+Raw response: {
+  "marathi_sentence": "लिफ्ट प्रवेशकक्षाजवळ आहे आणि तिथून खोलीकडे जाता येते.",
+  "english_translation": "The elevator is near the lobby and from there you can go to the room."
+}
+Parsed result: {'marathi_sentence': 'लिफ्ट प्रवेशकक्षाजवळ आहे आणि तिथून खोलीकडे जाता येते.', 'english_translation': 'The elevator is near the lobby and from there you can go to the room.'}
