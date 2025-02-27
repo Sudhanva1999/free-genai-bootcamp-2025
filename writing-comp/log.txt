@@ -4,3 +4,63 @@ Raw response: {
   "english_translation": "The elevator is near the lobby and from there you can go to the room."
 }
 Parsed result: {'marathi_sentence': 'लिफ्ट प्रवेशकक्षाजवळ आहे आणि तिथून खोलीकडे जाता येते.', 'english_translation': 'The elevator is near the lobby and from there you can go to the room.'}
+Raw response: {
+  "marathi_sentence": "आम्ही रात्री लुडो खेळलो.",
+  "english_translation": "We played ludo at night."
+}
+Parsed result: {'marathi_sentence': 'आम्ही रात्री लुडो खेळलो.', 'english_translation': 'We played ludo at night.'}
+Raw response: {
+  "marathi_sentence": "राग आणि भय हे दोन्ही नकारात्मक भावना आहेत.",
+  "english_translation": "Anger and fear are both negative emotions."
+}
+Parsed result: {'marathi_sentence': 'राग आणि भय हे दोन्ही नकारात्मक भावना आहेत.', 'english_translation': 'Anger and fear are both negative emotions.'}
+Raw response: {
+  "marathi_sentence": "त्याच्या मनात तिरस्कार आणि मत्सर होता.",
+  "english_translation": "There was disgust and jealousy in his mind."
+}
+Parsed result: {'marathi_sentence': 'त्याच्या मनात तिरस्कार आणि मत्सर होता.', 'english_translation': 'There was disgust and jealousy in his mind.'}
+Raw response: {
+  "marathi_sentence": "भय हे मनाचे शत्रू आहे.",
+  "english_translation": "Fear is the enemy of the mind."
+}
+Parsed result: {'marathi_sentence': 'भय हे मनाचे शत्रू आहे.', 'english_translation': 'Fear is the enemy of the mind.'}
+Raw response: {
+  "marathi_sentence": "मुलांच्या चेहऱ्यावर उत्साह दिसत होता.",
+  "english_translation": "Excitement was visible on the children's faces."
+}
+Parsed result: {'marathi_sentence': 'मुलांच्या चेहऱ्यावर उत्साह दिसत होता.', 'english_translation': "Excitement was visible on the children's faces."}
+Raw response: {
+  "marathi_sentence": "त्याच्या चेहऱ्यावर दुःख दिसत होते.",
+  "english_translation": "Sadness was visible on his face."
+}
+Parsed result: {'marathi_sentence': 'त्याच्या चेहऱ्यावर दुःख दिसत होते.', 'english_translation': 'Sadness was visible on his face.'}
+Raw response: {
+  "marathi_sentence": "वाघ जंगलात राहतो.",
+  "english_translation": "The tiger lives in the forest."
+}
+Parsed result: {'marathi_sentence': 'वाघ जंगलात राहतो.', 'english_translation': 'The tiger lives in the forest.'}
+Raw response: {
+  "marathi_sentence": "आम्ही नाटकाचा सराव करत आहोत.",
+  "english_translation": "We are doing rehearsal for the play."
+}
+Parsed result: {'marathi_sentence': 'आम्ही नाटकाचा सराव करत आहोत.', 'english_translation': 'We are doing rehearsal for the play.'}
+Raw response: {
+  "marathi_sentence": "मला क्रिकेट आवडतो, पण माझ्या भावाला लुडो आणि बुद्धिबळ खेळायला आवडते.",
+  "english_translation": "I like cricket, but my brother likes to play ludo and chess."
+}
+Parsed result: {'marathi_sentence': 'मला क्रिकेट आवडतो, पण माझ्या भावाला लुडो आणि बुद्धिबळ खेळायला आवडते.', 'english_translation': 'I like cricket, but my brother likes to play ludo and chess.'}
+Raw response: {
+  "marathi_sentence": "आज संध्याकाळी आपण लुडो खेळूया.",
+  "english_translation": "Let's play ludo this evening."
+}
+Parsed result: {'marathi_sentence': 'आज संध्याकाळी आपण लुडो खेळूया.', 'english_translation': "Let's play ludo this evening."}
+Raw response: {
+  "marathi_sentence": "गाय दूध देते.",
+  "english_translation": "The cow gives milk."
+}
+Parsed result: {'marathi_sentence': 'गाय दूध देते.', 'english_translation': 'The cow gives milk.'}
+Raw response: {
+  "marathi_sentence": "माझा घोडा खूप सुंदर आहे.",
+  "english_translation": "My horse is very beautiful."
+}
+Parsed result: {'marathi_sentence': 'माझा घोडा खूप सुंदर आहे.', 'english_translation': 'My horse is very beautiful.'}
