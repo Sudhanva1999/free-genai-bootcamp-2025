@@ -134,3 +134,7 @@ Ensure that you have:
 1. AWS CLI installed and configured with appropriate credentials
 2. Access to Amazon Bedrock with the specified model
 3. Proper IAM permissions to invoke Bedrock models
+
+## License
+
+This project is licensed under the MIT License.

@@ -5,30 +5,31 @@ A comprehensive application designed to help users practice and improve their Ma
 ## Architecture Overview
 
 ```mermaid
-graph TD;
-    User([User]) <--> |Interacts with UI| Streamlit[Streamlit Frontend];
+graph TD
+    User([User]) <--> Streamlit[Streamlit Frontend]
     
     subgraph Frontend
-        Streamlit --> QuestionDisplay[Display Question];
-        Streamlit --> AudioPlayer[Audio Player];
-        Streamlit --> UserFeedback[Feedback Display];
+        Streamlit --> QuestionDisplay[Display Question]
+        Streamlit --> AudioPlayer[Audio Player]
+        Streamlit --> UserFeedback[Feedback Display]
     end
     
     subgraph Backend
-        QGen[Question Generator] --> |Invokes| Bedrock[(AWS Bedrock\nClaude 3.5 Sonnet)];
-        AGen[Audio Generator] --> |Invokes| Bedrock;
-        AGen --> |Uses| GoogleTTS[(Google Cloud\nText-to-Speech)];
-        VStore[Vector Store] --> |Stores| ChromaDB[(ChromaDB)];
+        QGen[Question Generator] -->|Uses| Bedrock[(AWS Bedrock)]
+        AGen[Audio Generator] -->|Uses| Bedrock
+        AGen -->|Uses| GoogleTTS[(Google Cloud TTS)]
+        VStore[Vector Store] -->|Stores Data| ChromaDB[(ChromaDB)]
     end
     
-    Streamlit --> |Requests Question| QGen;
-    Streamlit --> |Requests Audio| AGen;
-    QGen --> |Stores/Retrieves| VStore;
+    Streamlit -->|Requests| QGen
+    Streamlit -->|Requests| AGen
+    QGen -->|Fetches| VStore
     
-    subgraph DataStorage
-        ChromaDB --> |Vector Embeddings| QStorage[(Question Storage)];
-        AudioFiles[(Audio Files)] <-- |Generated MP3s| AGen;
+    subgraph Storage
+        ChromaDB -->|Stores| QStorage[(Question Storage)]
+        AGen -->|Saves| AudioFiles[(Audio Files)]
     end
+
 ```
 
 ## Features
@@ -234,34 +235,6 @@ self.voices = {
 }
 ```
 
-## API Reference
+## License
 
-### QuestionGenerator
-
-```python
-# Generate a new question
-question = question_generator.generate_similar_question(section_num, topic)
-
-# Get feedback on an answer
-feedback = question_generator.get_feedback(question, selected_answer)
-```
-
-### AudioGenerator
-
-```python
-# Generate audio for a question
-audio_file = audio_generator.generate_audio(question)
-
-# Parse conversation parts
-parts = audio_generator.parse_conversation(question)
-```
-
-### VectorStore
-
-```python
-# Add a question to the store
-vector_store.add_question(section_num, question, question_id)
-
-# Search for similar questions
-similar = vector_store.search_similar_questions(section_num, topic, n_results=3)
-```
+This project is licensed under the MIT License.
