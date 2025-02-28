@@ -49,13 +49,13 @@ graph TD
 
 ## Services
 
-### 1. [Word Groups API](./README.md#2)
+### 1. [Word Groups API / Vocab-Backend](./vocab-backend/README.md)
 A Flask-based backend service that provides word groups and their translations in Marathi.
 - Checks local SQLite database for words
 - Falls back to Amazon Bedrock LLM when needed
 - RESTful API for retrieving words by group ID or name
 
-### 2. [Marathi Practice App](./README.md#1)
+### 2. [Marathi Writing Practice App](./writing-comp/README.md)
 An interactive application for writing practice and sentence generation.
 - Word selection from different categories
 - Sentence generation with Marathi and English translations
@@ -63,7 +63,7 @@ An interactive application for writing practice and sentence generation.
 - Grading and feedback system
 - Integration with Amazon Bedrock for language processing
 
-### 3. [Marathi Listening Practice](./README.md#3)
+### 3. [Marathi Listening Practice](./listening-comp/README.md)
 A comprehensive application for practicing Marathi listening comprehension.
 - Question generation via AWS Bedrock (Claude 3.5 Sonnet)
 - Audio generation using Google Cloud TTS with Marathi voice models
@@ -71,7 +71,7 @@ A comprehensive application for practicing Marathi listening comprehension.
 - Interactive feedback for answers
 - Vector search using ChromaDB for context-aware generation
 
-### 4. [Language Portal Frontend](./README.md#5)
+### 4. [Language Portal Frontend](./lang-portal/README.md)
 A React-based single-page application for organizing the learning experience.
 - Dashboard with statistics and study progress tracking
 - Words management with extensive metadata
@@ -79,11 +79,6 @@ A React-based single-page application for organizing the learning experience.
 - Various study activity types (flashcards, quizzes, etc.)
 - Study session tracking and performance analytics
 
-### 5. [React Application Framework](./README.md#4)
-A lightweight Vite-based React application framework.
-- Uses Vite as build tool
-- ESLint for code quality
-- Clean project structure for component-based development
 
 ## AI/ML Integration
 
@@ -131,11 +126,10 @@ The platform uses multiple database systems:
 
 Each service has its own installation instructions. Please refer to the individual service READMEs for detailed setup steps:
 
-- [Word Groups API Setup](./README.md#2)
-- [Marathi Practice App Setup](./README.md#1)
-- [Marathi Listening Practice Setup](./README.md#3)
-- [Language Portal Frontend Setup](./README.md#5)
-- [React Application Framework Setup](./README.md#4)
+- [Word Groups API Setup](./vocab-backend/README.md)
+- [Marathi Writing Practice App Setup](./writing-comp/README.md)
+- [Marathi Listening Practice Setup](./listening-comp/README.md)
+- [Language Portal Frontend Setup](./lang-portal/README.md)
 
 ## Usage
 
