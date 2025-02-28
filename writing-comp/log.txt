@@ -64,3 +64,13 @@ Raw response: {
   "english_translation": "My horse is very beautiful."
 }
 Parsed result: {'marathi_sentence': 'माझा घोडा खूप सुंदर आहे.', 'english_translation': 'My horse is very beautiful.'}
+Raw response: {
+  "marathi_sentence": "साप झाडावर चढला आहे.",
+  "english_translation": "The snake has climbed on the tree."
+}
+Parsed result: {'marathi_sentence': 'साप झाडावर चढला आहे.', 'english_translation': 'The snake has climbed on the tree.'}
+Raw response: {
+  "marathi_sentence": "मला जांभळा रंग आवडतो.",
+  "english_translation": "I like the purple color."
+}
+Parsed result: {'marathi_sentence': 'मला जांभळा रंग आवडतो.', 'english_translation': 'I like the purple color.'}

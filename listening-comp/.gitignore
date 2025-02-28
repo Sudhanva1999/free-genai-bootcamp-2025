@@ -170,3 +170,10 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+/frontend/static/
+/backend/data/vectorstore/
+/backend/data/vector_store/
+/backend/data/
+/frontend/static/audio/

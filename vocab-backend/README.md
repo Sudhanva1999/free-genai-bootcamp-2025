@@ -10,6 +10,19 @@ A Flask-based backend application that provides word groups and their translatio
 - Response validation to ensure consistent format
 - Initial database seeding with common word categories
 
+## Technical Diagram
+
+Below is a technical diagram illustrating the architecture of the Word Groups API:
+
+```mermaid
+graph TD
+    A[Client] --> B[Flask API]
+    B --> C[SQLite Database]
+    B --> D[Amazon Bedrock LLM]
+    C --> B
+    D --> B
+```
+
 ## Setup
 
 ### 1. Prerequisites
