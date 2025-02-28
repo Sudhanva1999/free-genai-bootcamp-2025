@@ -7,3 +7,6 @@ Raw OCR output: माझा घोडा खूप सुंदर आहे
 Raw OCR output: चुकीचा शब्द
 Raw OCR output: No Marathi text detected.
 Raw OCR output: साधेपण
+Raw OCR output: राम
+Raw OCR output: No Marathi text detected.
+Raw OCR output: मला "आबा", सत्री आणि टरबुज आवडतात

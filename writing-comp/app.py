@@ -10,7 +10,7 @@ import base64
 from PIL import Image
 
 # Set page config
-st.set_page_config(page_title="Marathi Practice App", page_icon="📚", layout="wide")
+st.set_page_config(page_title="Marathi Writing Practice App", page_icon="📚", layout="wide")
 
 # Custom CSS for styling with improved color theme
 st.markdown(
@@ -559,12 +559,12 @@ def grade_translation(target_english, student_marathi, correct_marathi):
 
 # Home page - Word selection and sentence generation
 def show_home_page():
-    st.title("Marathi Practice App")
+    st.title("Marathi Writing Practice App")
     st.subheader("Learn Marathi words by category")
 
     # Category input
     category = st.text_input(
-        "Please enter any word category you want to practice:",
+        "Please enter any word category you want to practice writing:",
         placeholder="e.g., colors, animals, fruits",
     )
 

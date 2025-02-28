@@ -1,6 +1,8 @@
-# Marathi Practice App
+# Marathi Writing Practice App
 
 This project is a Marathi Practice App designed to help users learn and practice Marathi language through various interactive features. The app allows users to generate sentences using selected words, translate sentences, and get feedback on their translations.
+
+![ Writing App Demp ](./readmefiles/wricomp.gif)
 
 ## Features
 

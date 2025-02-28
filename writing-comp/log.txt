@@ -74,3 +74,13 @@ Raw response: {
   "english_translation": "I like the purple color."
 }
 Parsed result: {'marathi_sentence': 'मला जांभळा रंग आवडतो.', 'english_translation': 'I like the purple color.'}
+Raw response: {
+  "marathi_sentence": "मला आंबा आणि केळ आवडतात.",
+  "english_translation": "I like mango and banana."
+}
+Parsed result: {'marathi_sentence': 'मला आंबा आणि केळ आवडतात.', 'english_translation': 'I like mango and banana.'}
+Raw response: {
+  "marathi_sentence": "मला आंबा, संत्रा आणि कलिंगड आवडतात.",
+  "english_translation": "I like mango, orange and watermelon."
+}
+Parsed result: {'marathi_sentence': 'मला आंबा, संत्रा आणि कलिंगड आवडतात.', 'english_translation': 'I like mango, orange and watermelon.'}
