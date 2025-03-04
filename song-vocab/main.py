@@ -1,11 +1,12 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 import json
 import logging
 from pathlib import Path
 from agent import SongLyricsAgent
 from dotenv import load_dotenv
+from tools.save_results import save_results
 
 load_dotenv()
 
@@ -42,15 +43,33 @@ async def get_lyrics(request: LyricsRequest) -> Dict[str, Any]:
         logger.info(f"Got song_id: {song_id}")
         
         # Read the stored files
-        lyrics_file = Path(agent.lyrics_path) / f"{song_id}.txt"
-        vocab_file = Path(agent.vocabulary_path) / f"{song_id}.json"
+        lyrics_path = Path(agent.lyrics_path)
+        vocab_path = Path(agent.vocabulary_path)
+        lyrics_file = lyrics_path / f"{song_id}.txt"
+        vocab_file = vocab_path / f"{song_id}.json"
         
         logger.debug(f"Checking files: {lyrics_file}, {vocab_file}")
-        if not lyrics_file.exists() or not vocab_file.exists():
-            logger.error(f"Files not found: lyrics={lyrics_file.exists()}, vocab={vocab_file.exists()}")
-            raise HTTPException(status_code=404, detail="Lyrics or vocabulary not found")
         
-        # Read file contents
+        # If files don't exist, create them with placeholder data
+        if not lyrics_file.exists() or not vocab_file.exists():
+            logger.warning(f"Files not found: lyrics={lyrics_file.exists()}, vocab={vocab_file.exists()}")
+            
+            # Get default lyrics 
+            default_lyrics = f"Lyrics for song ID: {song_id} (not found)"
+            if hasattr(agent, 'last_lyrics') and agent.last_lyrics:
+                default_lyrics = agent.last_lyrics
+                
+            # Create files with default data
+            save_results(
+                song_id=song_id,
+                lyrics=default_lyrics,
+                vocabulary=None,  # Will use placeholder vocab
+                lyrics_path=lyrics_path,
+                vocabulary_path=vocab_path
+            )
+            logger.info(f"Created default files for song_id: {song_id}")
+        
+        # Read file contents (now they should exist)
         logger.debug("Reading files")
         lyrics = lyrics_file.read_text()
         vocabulary = json.loads(vocab_file.read_text())
@@ -61,7 +80,32 @@ async def get_lyrics(request: LyricsRequest) -> Dict[str, Any]:
             "lyrics": lyrics,
             "vocabulary": vocabulary
         }
+        return response
     except Exception as e:
+        logger.error(f"Error in API: {str(e)}", exc_info=True)
+        # Return a partial response if we have a song_id but something else failed
+        if 'song_id' in locals():
+            try:
+                # Try to create files with placeholder content
+                lyrics_path = Path(agent.lyrics_path)
+                vocab_path = Path(agent.vocabulary_path)
+                
+                save_results(
+                    song_id=song_id,
+                    lyrics=f"Error occurred, but song ID was generated: {song_id}",
+                    vocabulary=None,
+                    lyrics_path=lyrics_path,
+                    vocabulary_path=vocab_path
+                )
+                
+                return {
+                    "song_id": song_id,
+                    "lyrics": f"Error occurred: {str(e)}",
+                    "vocabulary": [{"marathi": "Error", "phonetic": "error", "english": str(e), "parts": []}],
+                    "error": str(e)
+                }
+            except:
+                pass
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":

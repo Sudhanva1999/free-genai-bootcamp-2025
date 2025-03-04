@@ -10,7 +10,7 @@ uvicorn main:app --reload
 curl -X POST http://localhost:8000/api/agent \
     -H "Content-Type: application/json" \
     -d '{
-        "message_request": "Find lyrics for Gulabi Sadi"
+        "message_request": "Find lyrics for Gulabi Sadi Marathi Version"
     }'
 ```
 

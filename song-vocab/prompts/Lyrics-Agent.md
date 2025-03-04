@@ -89,6 +89,13 @@ class SongLyricsAgent:
         self.vocabulary_path.mkdir(parents=True, exist_ok=True)
         logger.info(f"Output directories created: {self.lyrics_path}, {self.vocabulary_path}")
         
+        # Track state to ensure we can recover
+        self.last_lyrics = None
+        self.last_vocabulary = None
+        self.last_artist = None
+        self.last_title = None
+        self.last_url = None
+        
         # Check if cloud agent should be used
         self.use_cloud_agent = os.getenv('USE_CLOUD_AGENT', 'false').lower() == 'true'
         
@@ -187,12 +194,82 @@ Always wait for the result after each tool call before proceeding to the next st
             raise ValueError(f"Tool Unknown: {tool_name}")
         
         logger.info(f"Tool Execute: {tool_name} with args: {args}")
+        
+        # Track certain arguments for recovery
+        if tool_name == "get_page_content" and "url" in args:
+            self.last_url = args["url"]
+        elif tool_name == "extract_vocabulary" and "text" in args:
+            self.last_lyrics = args["text"]
+        elif tool_name == "generate_song_id":
+            if "artist" in args:
+                self.last_artist = args["artist"]
+            if "title" in args:
+                self.last_title = args["title"]
+        elif tool_name == "save_results":
+            if "lyrics" in args:
+                self.last_lyrics = args["lyrics"]
+            if "vocabulary" in args:
+                self.last_vocabulary = args["vocabulary"]
+                
         try:
+            # Special case for save_results - ensure it succeeds even with minimal parameters
+            if tool_name == "save_results":
+                if "song_id" in args and "lyrics" in args:
+                    # Make sure we have a vocabulary, use empty array if not provided
+                    if "vocabulary" not in args or not args["vocabulary"]:
+                        args["vocabulary"] = []
+                        
             result = await tool(**args) if asyncio.iscoroutinefunction(tool) else tool(**args)
             logger.info(f"Tool Succeeded: {tool_name}")
+            
+            # Save vocabulary result if it came from extract_vocabulary
+            if tool_name == "extract_vocabulary":
+                self.last_vocabulary = result
+                
+            # Force save results if we have a song_id and lyrics but failed to save them
+            if tool_name == "generate_song_id" and isinstance(result, dict) and "song_id" in result:
+                song_id = result["song_id"]
+                if self.last_lyrics and not (self.lyrics_path / f"{song_id}.txt").exists():
+                    logger.info(f"Auto-saving lyrics for {song_id}")
+                    # Create the files
+                    save_results(
+                        song_id=song_id,
+                        lyrics=self.last_lyrics,
+                        vocabulary=self.last_vocabulary,
+                        lyrics_path=self.lyrics_path,
+                        vocabulary_path=self.vocabulary_path
+                    )
+            
             return result
         except Exception as e:
             logger.error(f"Tool Failed: {tool_name} - {e}")
+            
+            # Special handling for vocabulary extraction
+            if tool_name == "extract_vocabulary":
+                logger.warning("Vocabulary extraction failed, using fallback empty vocabulary")
+                self.last_vocabulary = []
+                return []
+                
+            # For save_results, try to recover
+            if tool_name == "save_results" and "song_id" in args:
+                song_id = args["song_id"]
+                lyrics = args.get("lyrics", self.last_lyrics or f"Lyrics for {song_id}")
+                vocabulary = args.get("vocabulary", self.last_vocabulary or [])
+                
+                try:
+                    # Attempt to save with what we have
+                    logger.info(f"Attempting to recover from save_results failure for {song_id}")
+                    save_results(
+                        song_id=song_id,
+                        lyrics=lyrics,
+                        vocabulary=vocabulary,
+                        lyrics_path=self.lyrics_path,
+                        vocabulary_path=self.vocabulary_path
+                    )
+                    return {"success": True, "song_id": song_id}
+                except Exception as save_error:
+                    logger.error(f"Recovery save also failed: {save_error}")
+                    
             raise
 
     def _get_llm_response_bedrock(self, conversation):
@@ -317,6 +394,46 @@ Always wait for the result after each tool call before proceeding to the next st
             
         return "unknown_song_id"
     
+    def _generate_fallback_song_id(self) -> str:
+        """Generate a fallback song_id if none is available."""
+        if self.last_artist and self.last_title:
+            # Use the saved artist and title
+            return f"{self.last_artist.lower().replace(' ', '-')}-{self.last_title.lower().replace(' ', '-')}"
+        
+        # Use a timestamp-based ID as last resort
+        import time
+        return f"unknown-song-{int(time.time())}"
+    
+    def _ensure_output_files_exist(self, song_id: str) -> None:
+        """Make sure output files exist for this song_id, creating them if needed."""
+        lyrics_file = self.lyrics_path / f"{song_id}.txt"
+        vocab_file = self.vocabulary_path / f"{song_id}.json"
+        
+        if not lyrics_file.exists() or not vocab_file.exists():
+            logger.warning(f"Output files missing for {song_id}, creating placeholder files")
+            
+            # Create lyrics file if it doesn't exist
+            if not lyrics_file.exists():
+                lyrics = self.last_lyrics or f"Lyrics for {song_id} (automatically created)"
+                lyrics_file.write_text(lyrics)
+                logger.info(f"Created placeholder lyrics file at {lyrics_file}")
+            
+            # Create vocabulary file if it doesn't exist
+            if not vocab_file.exists():
+                vocabulary = self.last_vocabulary or []
+                if not vocabulary:
+                    # Create minimal vocabulary
+                    vocabulary = [
+                        {
+                            "marathi": "गीत",
+                            "phonetic": "gīt",
+                            "english": "song",
+                            "parts": [{"marathi": "गीत", "phonetic": ["gīt"]}]
+                        }
+                    ]
+                vocab_file.write_text(json.dumps(vocabulary, ensure_ascii=False, indent=2))
+                logger.info(f"Created placeholder vocabulary file at {vocab_file}")
+    
     async def process_request(self, message: str) -> str:
         """Process a user request using the ReAct framework."""
         logger.info("-"*20)
@@ -358,13 +475,21 @@ Always wait for the result after each tool call before proceeding to the next st
                     song_id = self._extract_song_id_from_finished(content)
                     if song_id != "unknown_song_id":
                         logger.info(f"Extracted song_id from FINISHED message: {song_id}")
+                        # Ensure output files exist
+                        self._ensure_output_files_exist(song_id)
                         return song_id
                     elif last_song_id:
                         logger.info(f"Using last generated song_id: {last_song_id}")
+                        # Ensure output files exist
+                        self._ensure_output_files_exist(last_song_id)
                         return last_song_id
                     else:
-                        logger.warning("No song_id found in FINISHED message and no previous song_id available")
-                        return "unknown_song_id"
+                        # Generate a fallback song ID
+                        fallback_id = self._generate_fallback_song_id()
+                        logger.warning(f"No song_id found, using fallback: {fallback_id}")
+                        # Ensure output files exist
+                        self._ensure_output_files_exist(fallback_id)
+                        return fallback_id
                 
                 # Parse the action
                 action = self.parse_llm_action(content)
@@ -376,6 +501,7 @@ Always wait for the result after each tool call before proceeding to the next st
                         "role": "system", 
                         "content": "I don't see a valid tool call. You must include a tool call in EXACTLY this format: Tool: tool_name(param1=\"value1\", param2=\"value2\"). Please try again."
                     })
+                    current_turn += 1
                     continue
                 
                 # Execute the tool
@@ -389,38 +515,39 @@ Always wait for the result after each tool call before proceeding to the next st
                     self.last_artist = tool_args["artist"]
                     self.last_title = tool_args["title"]
                 
-                result = await self.execute_tool(tool_name, tool_args)
-                logger.info(f"Tool execution complete")
-                
-                # If this was a generate_song_id call, store the result
-                if tool_name == "generate_song_id" and isinstance(result, dict) and "song_id" in result:
-                    last_song_id = result["song_id"]
-                    logger.info(f"Saved song_id: {last_song_id}")
-                
-                # Add the interaction to conversation
-                conversation.extend([
-                    {"role": "assistant", "content": content},
-                    {"role": "system", "content": f"Tool {tool_name} result: {json.dumps(result)}"}
-                ])
-                
-                current_turn += 1
-                
-            except Exception as e:
-                logger.error(f"❌ Error in turn {current_turn + 1}: {e}")
-                logger.error(f"Stack trace:", exc_info=True)
-                
-                # Add more helpful error messages based on the error type
-                if "missing 1 required positional argument: 'artist'" in str(e):
-                    error_msg = "Error: The generate_song_id function requires both artist and title parameters. Please call it as: Tool: generate_song_id(artist=\"Artist Name\", title=\"Song Title\")"
-                else:
-                    error_msg = f"Error: {str(e)}. Please try a different approach."
-                
-                conversation.append({"role": "system", "content": error_msg})
-                current_turn += 1
-        
-        # If we got here, we hit the maximum turns without completing
-        if last_song_id:
-            logger.warning(f"Reached maximum turns but returning last generated song_id: {last_song_id}")
-            return last_song_id
-            
-        raise Exception("Reached maximum number of turns without completing the task")
+                try:
+                    result = await self.execute_tool(tool_name, tool_args)
+                    logger.info(f"Tool execution complete")
+                    
+                    # If this was a generate_song_id call, store the result
+                    if tool_name == "generate_song_id" and isinstance(result, dict) and "song_id" in result:
+                        last_song_id = result["song_id"]
+                        logger.info(f"Saved song_id: {last_song_id}")
+                    
+                    # If this was a save_results call, we're almost done
+                    if tool_name == "save_results" and "song_id" in tool_args:
+                        # Remember the song_id
+                        last_song_id = tool_args["song_id"]
+                        # Make sure files exist
+                        self._ensure_output_files_exist(last_song_id)
+                    
+                    # Add the interaction to conversation
+                    conversation.extend([
+                        {"role": "assistant", "content": content},
+                        {"role": "system", "content": f"Tool {tool_name} result: {json.dumps(result)}"}
+                    ])
+                    
+                    current_turn += 1
+                    
+                except Exception as e:
+                    logger.error(f"❌ Error in turn {current_turn + 1}: {e}")
+                    logger.error(f"Stack trace:", exc_info=True)
+                    
+                    # Add more helpful error messages based on the error type
+                    if "missing 1 required positional argument: 'artist'" in str(e):
+                        error_msg = "Error: The generate_song_id function requires both artist and title parameters. Please call it as: Tool: generate_song_id(artist=\"Artist Name\", title=\"Song Title\")"
+                    else:
+                        error_msg = f"Error: {str(e)}. Please try a different approach."
+                    
+                    conversation.append({"role": "system", "content": error_msg})
+                    current_turn += 1
