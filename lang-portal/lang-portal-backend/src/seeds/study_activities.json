@@ -1,4 +1,7 @@
 [
-    {"name": "Typing Tutor", "url": "http://localhost:8080", "preview_url": "/assets/study_activities/typing-tutor.png"},
-    {"name": "Writing Practice", "url": "http://localhost:8081", "preview_url": ""}
+    {"name": "Typing Tutor", "url": "http://localhost:8080", "preview_url": "/assets/thumbnails/typing.jpg"},
+    {"name": "Writing Practice", "url": "http://localhost:8081", "preview_url": "/assets/thumbnails/writing.jpg"},
+    {"name": "Listening Practice", "url": "http://localhost:8501/", "preview_url": "/assets/thumbnails/listening.jpg"}
   ]
+
+

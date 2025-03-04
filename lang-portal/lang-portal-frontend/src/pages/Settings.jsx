@@ -1,9 +1,8 @@
-
 import { useMutation } from "@tanstack/react-query";
 import { resetHistory, fullReset } from "../services/api";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useTheme } from "next-themes";
+import { useTheme } from "../components/ThemeProvider"; // Import from your custom hook
 import {
   Select,
   SelectContent,
@@ -14,7 +13,7 @@ import {
 import { toast } from "@/components/ui/use-toast";
 
 const Settings = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   const resetHistoryMutation = useMutation({
     mutationFn: resetHistory,
@@ -45,7 +44,7 @@ const Settings = () => {
           <CardTitle>Theme</CardTitle>
         </CardHeader>
         <CardContent>
-          <Select value={theme} onValueChange={setTheme}>
+          <Select value={theme} onValueChange={(value) => setTheme(value)}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Select theme" />
             </SelectTrigger>
@@ -55,6 +54,9 @@ const Settings = () => {
               <SelectItem value="system">System</SelectItem>
             </SelectContent>
           </Select>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Current theme: {theme === "system" ? resolvedTheme : theme}
+          </p>
         </CardContent>
       </Card>
 

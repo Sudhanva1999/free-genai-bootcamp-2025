@@ -1,0 +1,7 @@
+outputs/*/*.json
+outputs/*/*.text
+.env
+
+*.pyc
+
+/svocab
