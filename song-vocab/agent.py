@@ -1,9 +1,11 @@
 import ollama
-from typing import List, Dict, Any, Optional
+import boto3
 import json
 import logging
 import re
 import asyncio
+import os
+from typing import List, Dict, Any, Optional
 from pathlib import Path
 from functools import partial
 from tools.search_web_serp import search_web_serp
@@ -75,7 +77,7 @@ class SongLyricsAgent:
     def __init__(self, stream_llm=True, available_ram_gb=32):
         logger.info("Initializing SongLyricsAgent")
         self.base_path = Path(__file__).parent
-        self.prompt_path = self.base_path / "prompts" / "Lyrics-Angent.md"
+        self.prompt_path = self.base_path / "prompts" / "Lyrics-Agent.md"
         self.lyrics_path = self.base_path / "outputs" / "lyrics"
         self.vocabulary_path = self.base_path / "outputs" / "vocabulary"
         self.stream_llm = stream_llm
@@ -87,10 +89,23 @@ class SongLyricsAgent:
         self.vocabulary_path.mkdir(parents=True, exist_ok=True)
         logger.info(f"Output directories created: {self.lyrics_path}, {self.vocabulary_path}")
         
-        # Initialize Ollama client and tool registry
-        logger.info("Initializing Ollama client and tool registry")
+        # Check if cloud agent should be used
+        self.use_cloud_agent = os.getenv('USE_CLOUD_AGENT', 'false').lower() == 'true'
+        
+        # Initialize LLM client and tool registry
+        logger.info(f"Using {'cloud' if self.use_cloud_agent else 'local'} agent")
         try:
-            self.client = ollama.Client()
+            if self.use_cloud_agent:
+                # Get cloud model from environment variable or use default
+                self.cloud_model = os.getenv('CLOUD_MODEL', 'anthropic.claude-3-5-sonnet-20240620-v1:0')
+                logger.info(f"Initializing Amazon Bedrock client with model: {self.cloud_model}")
+                self.bedrock_client = boto3.client('bedrock-runtime')
+            else:
+                # Get local model from environment variable or use default
+                self.local_model = os.getenv('LOCAL_MODEL', 'mistral')
+                logger.info(f"Initializing Ollama client with model: {self.local_model}")
+                self.client = ollama.Client()
+            
             self.tools = ToolRegistry(self.lyrics_path, self.vocabulary_path)
             logger.info("Initialization successful")
         except Exception as e:
@@ -129,8 +144,66 @@ class SongLyricsAgent:
             logger.error(f"Tool Failed: {tool_name} - {e}")
             raise
 
-    def _get_llm_response(self, conversation):
-        """Get response from LLM with optional streaming.
+    def _get_llm_response_bedrock(self, conversation):
+        """Get response from Claude via Amazon Bedrock.
+        
+        Args:
+            conversation (list): List of conversation messages
+            
+        Returns:
+            dict: Response object with 'content' key
+        """
+        try:
+            # Convert conversation format to Anthropic format
+            messages = []
+            for msg in conversation:
+                role = "assistant" if msg["role"] == "assistant" else "user"
+                if msg["role"] == "system" and len(messages) == 0:
+                    # Handle system message at the beginning
+                    messages.append({
+                        "role": "user",
+                        "content": [{"type": "text", "text": msg["content"]}]
+                    })
+                    continue
+                elif msg["role"] == "system":
+                    # Handle system messages elsewhere as user messages
+                    role = "user"
+                
+                messages.append({
+                    "role": role,
+                    "content": [{"type": "text", "text": msg["content"]}]
+                })
+            
+            # Prepare Claude API request
+            request_body = {
+                "anthropic_version": "bedrock-2023-05-31",
+                "max_tokens": 4096,
+                "messages": messages,
+                "temperature": 0.2
+            }
+            
+            # Log the request (truncated for brevity)
+            logger.info(f"Bedrock request: {json.dumps(request_body)[:500]}...")
+            
+            # Call Bedrock API
+            response = self.bedrock_client.invoke_model(
+                modelId=self.cloud_model,
+                body=json.dumps(request_body)
+            )
+            
+            # Parse response
+            response_body = json.loads(response['body'].read())
+            content = response_body.get('content', [{}])[0].get('text', '')
+            
+            logger.info(f"Bedrock response: {content[:300]}...")
+            return {'message': {'role': 'assistant', 'content': content}}
+            
+        except Exception as e:
+            logger.error(f"Bedrock response error: {e}")
+            return {'message': {'role': 'assistant', 'content': f'Error: {str(e)}'}}
+
+    def _get_llm_response_ollama(self, conversation):
+        """Get response from local Ollama with optional streaming.
         
         Args:
             conversation (list): List of conversation messages
@@ -143,7 +216,7 @@ class SongLyricsAgent:
             full_response = ""
             logger.info("Streaming tokens:")
             for chunk in self.client.chat(
-                model="mistral",
+                model=self.local_model,
                 messages=conversation,
                 stream=True
             ):
@@ -153,12 +226,12 @@ class SongLyricsAgent:
                     full_response += content
             
             # Create response object similar to non-streaming format
-            return {'content': full_response}
+            return {'message': {'role': 'assistant', 'content': full_response}}
         else:
             # Non-streaming response
             try:
                 response = self.client.chat(
-                    model="mistral",
+                    model=self.local_model,
                     messages=conversation,
                     options={
                         "num_ctx": self.context_window
@@ -167,14 +240,21 @@ class SongLyricsAgent:
                 # Log context window usage
                 prompt_tokens = response.get('prompt_eval_count', 0)
                 total_tokens = prompt_tokens + response.get('eval_count', 0)
-                logger.info(f"Context window usage: {prompt_tokens}/{2048} tokens (prompt), {total_tokens} total tokens")
+                logger.info(f"Context window usage: {prompt_tokens}/{self.context_window} tokens (prompt), {total_tokens} total tokens")
                 
                 logger.info(f"  Message ({response['message']['role']}): {response['message']['content'][:300]}...")
                 return response
             except Exception as e:
                 logger.error(f"LLM response error: {e}")
                 # Return a minimal response to prevent crashes
-                return {'message': {'role': 'assistant', 'content': 'Error: Context too large. Please try with less context.'}}
+                return {'message': {'role': 'assistant', 'content': f'Error: {str(e)}'}}
+    
+    def _get_llm_response(self, conversation):
+        """Get response from either local or cloud LLM based on configuration."""
+        if self.use_cloud_agent:
+            return self._get_llm_response_bedrock(conversation)
+        else:
+            return self._get_llm_response_ollama(conversation)
     
     async def process_request(self, message: str) -> str:
         """Process a user request using the ReAct framework."""
@@ -199,8 +279,6 @@ class SongLyricsAgent:
                         logger.info(f"  Message ({msg['role']}): {msg['content'][:300]}...")
 
                     response = self._get_llm_response(conversation)
-
-                    #breakpoint()
                     
                     if not isinstance(response, dict) or 'message' not in response or 'content' not in response['message']:
                         raise ValueError(f"Unexpected response format from LLM: {response}")
@@ -208,23 +286,32 @@ class SongLyricsAgent:
                     # Extract content from the message
                     content = response.get('message', {}).get('content', '')
                     if not content or not content.strip():
-                        breakpoint()
                         logger.warning("Received empty response from LLM")
                         conversation.append({"role": "system", "content": "Your last response was empty. Please process the previous result and specify the next tool to use, or indicate FINISHED if done."})
                         continue
 
-                    response = {'content': content}
-                    
                     # Parse the action
-                    action = self.parse_llm_action(response['content'])
+                    action = self.parse_llm_action(content)
                     
                     if not action:
-                        if 'FINISHED' in response['content']:
-                            logger.info("LLM indicated task is complete")
-                            return response['content']
+                        if 'FINISHED' in content:
+                            # Extract song_id from the response
+                            song_id_match = re.search(r'song_id[:\s="\']+([a-zA-Z0-9_-]+)', content)
+                            if song_id_match:
+                                song_id = song_id_match.group(1)
+                                logger.info(f"Task complete. Song ID: {song_id}")
+                                return song_id
+                            else:
+                                logger.warning("FINISHED but no song_id found")
+                                # Try to find any word that looks like it could be a song_id
+                                potential_id = re.search(r'([a-z0-9-_]+)', content)
+                                if potential_id:
+                                    return potential_id.group(1)
+                                return "unknown_song_id"
                         else:
                             logger.warning("No tool call found in LLM response")
-                            conversation.append({"role": "system", "content": "Please specify a tool to use or indicate FINISHED if done."})
+                            conversation.append({"role": "assistant", "content": content})
+                            conversation.append({"role": "system", "content": "Please specify a tool to use in the format 'Tool: tool_name(arg1=\"value1\")' or indicate FINISHED if done."})
                             continue
                 except Exception as e:
                     logger.error(f"Error getting LLM response: {e}")
@@ -242,7 +329,7 @@ class SongLyricsAgent:
                 
                 # Add the interaction to conversation
                 conversation.extend([
-                    {"role": "assistant", "content": response['content']},
+                    {"role": "assistant", "content": content},
                     {"role": "system", "content": f"Tool {tool_name} result: {json.dumps(result)}"}
                 ])
                 
@@ -254,4 +341,3 @@ class SongLyricsAgent:
                 conversation.append({"role": "system", "content": f"Error: {str(e)}. Please try a different approach."})
         
         raise Exception("Reached maximum number of turns without completing the task")
-        raise Exception("Failed to get results within maximum turns")
