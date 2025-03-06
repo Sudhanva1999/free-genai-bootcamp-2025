@@ -6,90 +6,11 @@ A comprehensive multi-service language learning platform designed specifically f
 
 The system consists of several interconnected services, each handling a specific aspect of language learning:
 
-```mermaid
-graph TD
-    User([User]) <--> Frontend[Language Portal Frontend]
-    
-    subgraph "Frontend Components"
-        Frontend --> Dashboard[Dashboard & Analytics]
-        Frontend --> VocabUI[Vocabulary Practice UI]
-        Frontend --> ListeningUI[Listening Practice UI]
-        Frontend --> WritingUI[Writing Practice UI]
-        Frontend --> ReactUI[React Study Interface]
-        Frontend --> SongUI[Song Vocabulary UI]
-        Frontend --> SpeakingUI[Speaking Practice UI]
-    end
-    
-    subgraph "Backend Services"
-        WordGroupAPI[Word Groups API]
-        MarathiPracticeAPI[Marathi Practice API]
-        ListeningAPI[Listening Practice API]
-        ReactBackend[React App Backend]
-        SongVocabAPI[Song Vocabulary API]
-        SpeakingAPI[Speaking Practice API]
-    end
-    
-    Dashboard --> WordGroupAPI
-    VocabUI --> WordGroupAPI
-    ListeningUI --> ListeningAPI
-    WritingUI --> MarathiPracticeAPI
-    ReactUI --> ReactBackend
-    SongUI --> SongVocabAPI
-    SpeakingUI --> SpeakingAPI
-    
-    subgraph "AI Services"
-        WordGroupAPI --> Bedrock1[(AWS Bedrock)]
-        MarathiPracticeAPI --> Bedrock2[(AWS Bedrock)]
-        ListeningAPI --> Bedrock3[(AWS Bedrock)]
-        ListeningAPI --> GoogleTTS[(Google Cloud TTS)]
-        SongVocabAPI --> Bedrock4[(AWS Bedrock)]
-        SongVocabAPI --> OllamaLLM[(Ollama Local LLM)]
-        SpeakingAPI --> Bedrock5[(AWS Bedrock\nClaude & Stability AI)]
-        SpeakingAPI --> GoogleSTT[(Google Cloud STT)]
-    end
-    
-    subgraph "Storage Systems"
-        WordGroupAPI --> SQLiteDB1[(SQLite)]
-        MarathiPracticeAPI --> ConfigStorage[(Config Storage)]
-        ListeningAPI --> VectorStore[(ChromaDB)]
-        ListeningAPI --> AudioFiles[(Audio Files)]
-        ReactBackend --> SQLiteDB2[(SQLite)]
-        SongVocabAPI --> LyricsFiles[(Lyrics Files)]
-        SongVocabAPI --> VocabFiles[(Vocabulary Files)]
-        SpeakingAPI --> TempStorage[(Temporary Files\nAudio & Images)]
-    end
-    
-    subgraph "External Services"
-        SongVocabAPI --> SERP[(Search API)]
-        SongVocabAPI --> WebContent[(Web Content)]
-    end
-```
+
 
 ## Services
 
-### 1. [Word Groups API / Vocab-Backend](./vocab-backend/README.md)
-A Flask-based backend service that provides word groups and their translations in Marathi.
-- Checks local SQLite database for words
-- Falls back to Amazon Bedrock LLM when needed
-- RESTful API for retrieving words by group ID or name
-
-### 2. [Marathi Writing Practice App](./writing-comp/README.md)
-An interactive application for writing practice and sentence generation.
-- Word selection from different categories
-- Sentence generation with Marathi and English translations
-- Translation practice with text input, drawing, or image upload
-- Grading and feedback system
-- Integration with Amazon Bedrock for language processing
-
-### 3. [Marathi Listening Practice](./listening-comp/README.md)
-A comprehensive application for practicing Marathi listening comprehension.
-- Question generation via AWS Bedrock (Claude 3.5 Sonnet)
-- Audio generation using Google Cloud TTS with Marathi voice models
-- Practice types include dialogues and phrase matching
-- Interactive feedback for answers
-- Vector search using ChromaDB for context-aware generation
-
-### 4. [Language Portal Frontend](./lang-portal/README.md)
+### 1. [Language Portal Frontend](./lang-portal/README.md)
 A React-based single-page application for organizing the learning experience.
 - Dashboard with statistics and study progress tracking
 - Words management with extensive metadata
@@ -97,15 +18,29 @@ A React-based single-page application for organizing the learning experience.
 - Various study activity types (flashcards, quizzes, etc.)
 - Study session tracking and performance analytics
 
-### 5. [Marathi Song Vocabulary Agent](./song-vocab/README.md)
-A specialized application that finds Marathi song lyrics, extracts vocabulary, and creates learning resources.
-- Searches for and retrieves Marathi song lyrics from the web
-- Extracts vocabulary with phonetic transcriptions and English meanings
-- Saves structured data for language learning
-- Flexible integration with local Ollama models or cloud-based AWS Bedrock models
-- ReAct (Reasoning + Acting) agent architecture for coordinated processing
+### 2. [Word Groups API / Vocab-Backend](./vocab-backend/README.md)
+A Flask-based backend service that provides word groups and their translations in Marathi.
+- Checks local SQLite database for words
+- Falls back to Amazon Bedrock LLM when needed
+- RESTful API for retrieving words by group ID or name
 
-### 6. [Marathi Speaking Practice App](./speech-practice/README.md)
+### 3. [Marathi Writing Practice App](./writing-comp/README.md)
+An interactive application for writing practice and sentence generation.
+- Word selection from different categories
+- Sentence generation with Marathi and English translations
+- Translation practice with text input, drawing, or image upload
+- Grading and feedback system
+- Integration with Amazon Bedrock for language processing
+
+### 4. [Marathi Listening Practice](./listening-comp/README.md)
+A comprehensive application for practicing Marathi listening comprehension.
+- Question generation via AWS Bedrock (Claude 3.5 Sonnet)
+- Audio generation using Google Cloud TTS with Marathi voice models
+- Practice types include dialogues and phrase matching
+- Interactive feedback for answers
+- Vector search using ChromaDB for context-aware generation
+
+### 5. [Marathi Speaking Practice App](./speech-practice/README.md)
 An AI-powered application for improving Marathi speaking skills through guided practice and feedback.
 - Topic-based speaking practice with AI-generated visual prompts
 - 30-second recording capability for speech samples
@@ -120,6 +55,16 @@ The speaking practice workflow includes:
 2. Receiving a topic-relevant image generated by Stability AI
 3. Recording Marathi speech while referring to the image
 4. Getting AI-generated feedback on speaking performance
+
+### 6. [Marathi Song Vocabulary Agent](./song-vocab/README.md)
+A specialized application that finds Marathi song lyrics, extracts vocabulary, and creates learning resources.
+- Searches for and retrieves Marathi song lyrics from the web
+- Extracts vocabulary with phonetic transcriptions and English meanings
+- Saves structured data for language learning
+- Flexible integration with local Ollama models or cloud-based AWS Bedrock models
+- ReAct (Reasoning + Acting) agent architecture for coordinated processing
+
+
 
 ## AI/ML Integration
 
