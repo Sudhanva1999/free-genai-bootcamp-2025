@@ -6,7 +6,7 @@ A comprehensive multi-service language learning platform designed specifically f
 
 The system consists of several interconnected services, each handling a specific aspect of language learning:
 
-![ Marathi Language Portal Architecture ](./readmefiles/LangPortal.png)
+![ Marathi Language Portal Architecture ](./readmefiles/LangPortal_bg.png)
 
 ## Services
 
