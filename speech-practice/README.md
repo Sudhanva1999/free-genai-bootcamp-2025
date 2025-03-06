@@ -2,7 +2,9 @@
 
 This project is a Marathi Speaking Practice App designed to help users improve their Marathi speaking skills through AI-powered feedback. The app allows users to select topics, generates relevant images, records their spoken Marathi, transcribes it, and provides detailed feedback on their speaking performance.
 
-![Marathi Speaking App Demo](./readmefiles/speech_demo.gif)
+| [![ Marathi Speaking App Demo ](./readmefiles/speech_demo.gif)](https://youtu.be/jwW-c-SOA3s) | 
+|:--:| 
+| *Click on the gif to view the entire demo on youtube.* |
 
 ## Features
 

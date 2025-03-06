@@ -212,6 +212,7 @@ Each service has its own installation instructions. Please refer to the individu
 - [Marathi Listening Practice Setup](./listening-comp/README.md)
 - [Language Portal Frontend Setup](./lang-portal/README.md)
 - [Marathi Song Vocabulary Agent Setup](./song-vocab/README.md)
+- [Marathi Speech Practice App Setup](./speech-practice/README.md)
 
 ## Usage
 

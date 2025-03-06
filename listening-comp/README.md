@@ -2,7 +2,9 @@
 
 A comprehensive application designed to help users practice and improve their Marathi language listening comprehension skills. The application generates various practice scenarios, delivers audio content with appropriate voices, and provides interactive feedback.
 
-![ Listening App Demo ](./readmefiles/list_comp.gif)
+| [![ Listening App Demo ](./readmefiles/list_comp.gif)](https://youtu.be/2qUoFk-v0h4) | 
+|:--:| 
+| *Click on the gif to view the entire demo on youtube.* |
 
 ## Architecture Overview
 
