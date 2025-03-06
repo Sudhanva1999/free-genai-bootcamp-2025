@@ -20,6 +20,8 @@ const corsOptions = {
   optionsSuccessStatus: 204
 };
 
+require('dotenv').config();
+
 // Middleware
 app.use(cors(corsOptions));
 app.use(express.json());

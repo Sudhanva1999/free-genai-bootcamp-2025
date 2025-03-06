@@ -6,7 +6,7 @@ A comprehensive multi-service language learning platform designed specifically f
 
 The system consists of several interconnected services, each handling a specific aspect of language learning:
 
-
+![ Marathi Language Portal Architecture ](./readmefiles/LangPortal.png)
 
 ## Services
 
@@ -17,6 +17,10 @@ A React-based single-page application for organizing the learning experience.
 - Organization of words into logical groups
 - Various study activity types (flashcards, quizzes, etc.)
 - Study session tracking and performance analytics
+
+| [![ Dashboard Demo ](./readmefiles/dashboard.gif)](https://youtu.be/3oHt9BHrgIU) | 
+|:--:| 
+| *Click on the gif to view the entire demo on youtube.* |
 
 ### 2. [Word Groups API / Vocab-Backend](./vocab-backend/README.md)
 A Flask-based backend service that provides word groups and their translations in Marathi.

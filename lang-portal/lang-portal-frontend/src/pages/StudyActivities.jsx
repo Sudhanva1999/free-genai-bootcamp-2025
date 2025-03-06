@@ -60,6 +60,8 @@ const StudyActivities = () => {
     queryFn: getStudyActivities,
   });
 
+  console.log(data);
+
   const handleLaunch = (activity) => {
     setSelectedActivity(activity);
     setLauncherOpen(true);
@@ -84,7 +86,7 @@ const StudyActivities = () => {
                 <CardMedia
                   component="img"
                   height="194"
-                  image={activity.thumbnail_url}
+                  image={activity.preview_url}
                   alt={activity.name}
                 />
                 <CardContent sx={{ flexGrow: 1 }}>

@@ -19,7 +19,6 @@ const studyActivitiesController = {
     try {
       const page = parseInt(req.query.page) || 1;
       const result = await StudyActivity.findAll(page);
-      
       res.json(result);
     } catch (error) {
       res.status(500).json({ error: error.message });
