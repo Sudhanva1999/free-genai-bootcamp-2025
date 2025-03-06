@@ -10,9 +10,22 @@ const settingsRoutes = require('./routes/settingsRoutes');
 
 const app = express();
 
+// Enhanced CORS configuration
+const corsOptions = {
+  origin: '*', // Allow all origins for development
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
+
+// Allow preflight OPTIONS requests for all routes
+app.options('*', cors(corsOptions));
 
 // API Routes
 app.use('/api/dashboard', dashboardRoutes);

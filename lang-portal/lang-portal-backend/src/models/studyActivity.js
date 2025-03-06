@@ -2,16 +2,31 @@ const db = require('../database');
 
 class StudyActivity {
   static async findById(id) {
-    return await db.get(
-      "SELECT id, name, url, preview_url as thumbnail_url FROM study_activities WHERE id = ?",
+    const activity = await db.get(
+      "SELECT id, name FROM study_activities WHERE id = ?",
       [id]
     );
+    
+    if (activity) {
+      const key = activity.name.split(" ")[0].toUpperCase();
+      activity.url = process.env[`APP_URL_${key}`] || null;
+      activity.preview_url = process.env[`APP_PREVIEW_URL_${key}`] || null;
+    }
+    
+    return activity;
   }
 
   static async findAll() {
-    return await db.all(
-      "SELECT id, name, url, preview_url as thumbnail_url FROM study_activities"
-    );
+    const activities = await db.all("SELECT id, name FROM study_activities");
+    
+    return activities.map(activity => {
+      const key = activity.name.split(" ")[0].toUpperCase();
+      return {
+        ...activity,
+        url: process.env[`APP_URL_${key}`] || null,
+        preview_url: process.env[`APP_PREVIEW_URL_${key}`] || null
+      };
+    });
   }
 
   static async getStudySessions(activityId, page = 1, limit = 100) {

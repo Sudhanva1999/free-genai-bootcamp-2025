@@ -3,3 +3,17 @@ youtube-transcript-api>=0.6.2
 chromadb>=0.4.22
 streamlit
 boto3
+python-dotenv>=1.0.0
+
+# For the backend (adjust as needed depending on your backend implementation)
+openai>=1.0.0
+numpy>=1.24.0
+pandas>=2.0.0
+
+# For audio processing (assume audio generation is using TTS)
+gTTS>=2.3.2
+
+# For vector storage
+faiss-cpu>=1.7.4
+sentence-transformers>=2.2.2
+

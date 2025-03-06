@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+listcomp/
 backend/data/vector_store/
 # C extensions
 *.so
@@ -177,3 +178,8 @@ cython_debug/
 /backend/data/vector_store/
 /backend/data/
 /frontend/static/audio/
+/backend/data/vectorstore/
+
+/backend/data/vectorstore/351a38b7-ddca-4e3b-8372-316ff9446fb2/length.bin
+/backend/data/vectorstore/b5aab0c9-046e-4d43-84f8-fcfef4fb1b9d/length.bin
+/backend/data/vectorstore/chroma.sqlite3
