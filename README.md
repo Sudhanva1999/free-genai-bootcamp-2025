@@ -60,7 +60,7 @@ The speaking practice workflow includes:
 3. Recording Marathi speech while referring to the image
 4. Getting AI-generated feedback on speaking performance
 
-### 6. [Marathi Song Vocabulary Agent](./song-vocab/README.md)
+### 6. [Marathi Song Vocabulary Agent](./song-vocab/Readme.md)
 A specialized application that finds Marathi song lyrics, extracts vocabulary, and creates learning resources.
 - Searches for and retrieves Marathi song lyrics from the web
 - Extracts vocabulary with phonetic transcriptions and English meanings
@@ -160,7 +160,7 @@ Each service has its own installation instructions. Please refer to the individu
 - [Marathi Writing Practice App Setup](./writing-comp/README.md)
 - [Marathi Listening Practice Setup](./listening-comp/README.md)
 - [Language Portal Frontend Setup](./lang-portal/README.md)
-- [Marathi Song Vocabulary Agent Setup](./song-vocab/README.md)
+- [Marathi Song Vocabulary Agent Setup](./song-vocab/Readme.md)
 - [Marathi Speech Practice App Setup](./speech-practice/README.md)
 
 ## Usage
